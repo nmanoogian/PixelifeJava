@@ -102,6 +102,50 @@ public class Pixelife extends JPanel
 
 	}
 
+	/**
+	 * Run the main loop
+	 * 
+	 */
+	public void run()
+	{
+		for (int i = 0; i < width; i++)
+		{
+			for (int j = 0; j < height; j++)
+			{
+				if (canvas.getRGB(i, j) != (Color.WHITE).getRGB())
+				{
+					int dir = (int)(Math.random()*4);
+					if (dir == 0)
+					{
+
+					}
+					else if (dir == 1)
+					{
+
+					}
+					else if (dir == 2)
+					{
+
+					}
+					else
+					{
+
+					}
+				}
+
+			}
+		}
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException e)
+		{
+			System.out.println("interrupted");
+		}
+		repaint();
+	}
+
 
 	public static void main(String [] args)
 	{
@@ -117,6 +161,9 @@ public class Pixelife extends JPanel
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pix.run();
+
+
 
 	}
 
