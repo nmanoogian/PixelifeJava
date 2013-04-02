@@ -148,7 +148,7 @@ public class Pixelife extends JPanel
 	{
 		int width = 640;
 		int height = 480;
-		JFrame frame = new JFrame("test");
+		JFrame frame = new JFrame("Pixel Life");
 
 		Pixelife pix = new Pixelife(width, height, 100000);
 
