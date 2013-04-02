@@ -53,6 +53,25 @@ public class PixGrid
 		return "";
 	}
 
+	public void trans(int ix, int iy, int x, int y)
+	{
+		// Didn't try to move out of bounds
+		if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length))
+		{
+			// If trans location is white, move Pix
+			if (grid[x][y].isWhite())
+			{
+				movePixel(ix, iy, x, y);
+			}
+			else
+			{
+				grid[ix][iy].interact(grid[x][y]);
+			}
+
+
+		}
+	}
+
 	public void update()
 	{
 		for( int i = 0; i < grid.length; i++ )
@@ -61,15 +80,18 @@ public class PixGrid
 			{
 				if( !grid[i][j].isWhite() )
 				{
-					int direction = (int)(Math.random() * 4)
+					int direction = (int)(Math.random() * 4);
 					int new_x, new_y;
 					switch(direction)
 					{
+						case 0:
+							trans(i,j,i+1,j);
 						case 1:
-							
+							trans(i,j,i,j+1);
 						case 2:
+							trans(i,j,i-1,j);
 						case 3:
-						case 4:
+							trans(i,j,i,j-1);
 						default:
 							break;
 
