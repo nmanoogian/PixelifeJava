@@ -21,7 +21,7 @@ public class PixGrid
 	{
 		grid = new Pix[xsize][ysize];
 		generate_blank_world();
-		generate_world(50000);
+		generate_world(10);
 	}
 	public void generate_blank_world()
 	{
@@ -81,20 +81,23 @@ public class PixGrid
 				if( !grid[i][j].isWhite() )
 				{
 					int direction = (int)(Math.random() * 4);
+					//System.out.println(direction);
 					switch(direction)
 					{
 						case 0:
 							trans(i,j,i+1,j);
+							break;
 						case 1:
 							trans(i,j,i,j+1);
+							break;
 						case 2:
 							trans(i,j,i-1,j);
+							break;
 						case 3:
 							trans(i,j,i,j-1);
+							break;
 						default:
 							break;
-
-
 					}
 				}
 			}
@@ -111,6 +114,20 @@ public class PixGrid
 	public void movePixel(int ix, int iy, int x, int y)
 	{
 		grid[x][y].setPix(grid[ix][iy]);
-		grid[ix][iy].setPix(255,255,255);
+		//grid[ix][iy] = new Pix();
+	}
+
+	public String toString()
+	{
+		String new_string = "";
+		for( int i = 0; i < grid.length; i++ )
+		{
+			for( int j = 0; j < grid[0].length; j ++ )
+			{
+				new_string += "(" + grid[i][j] + ") ";			
+			}
+			new_string += "\n";
+		}
+		return new_string;
 	}
 }

@@ -1,11 +1,12 @@
 import java.awt.Color;
-
 /**
  * Pixel Class
  * with Red Green and Blue streams
  */
 public class Pix
 {
+	public static final int COMPARE_THRESHOLD = 50;
+
 	private int red;
 	private int green;
 	private int blue;
@@ -127,28 +128,6 @@ public class Pix
 				break;
 			case 1:
 				//Inc dominant
-				if (green + 2 <= 255)
-				{
-					green += 2;
-				}
-				else
-				{
-					green = 255;
-				}
-
-				//Dec mins
-				if (blue - 1 >= 0)
-				{
-					blue--;
-				}
-
-				if (red - 1 >= 0)
-				{
-					red--;
-				}
-				break;
-			case 2:
-				//Inc dominant
 				if (blue + 2 <= 255)
 				{
 					blue += 2;
@@ -159,18 +138,40 @@ public class Pix
 				}
 
 				//Dec mins
+				if (green - 1 >= 0)
+				{
+					green--;
+				}
+
+				if (red - 1 >= 0)
+				{
+					red--;
+				}
+				break;
+			case 2:
+				//Inc dominant
+				if (green + 2 <= 255)
+				{
+					green += 2;
+				}
+				else
+				{
+					green = 255;
+				}
+
+				//Dec mins
 				if (red - 1 >= 0)
 				{
 					red--;
 				}
 
-				if (green - 1 >= 0)
+				if (blue - 1 >= 0)
 				{
-					green--;
+					blue--;
 				}
 				break;
 			case -1:
-				System.out.println("No dominant channel");
+				
 				break;
 		}
 
@@ -197,6 +198,7 @@ public class Pix
 		}
 		else
 		{
+			//ystem.out.println("No dominant channel" + toString());
 			return -1;
 		}
 
@@ -204,7 +206,9 @@ public class Pix
 
 	public void interact(Pix p)
 	{
-		if (getDomChannel() == p.getDomChannel())
+		//System.out.println(toString() + " and " + p.toString());
+		//if (getDomChannel() == p.getDomChannel())
+		if( !equal(p) )
 		{
 			changeWithChannel(getDomChannel());
 			p.changeWithChannel(p.getDomChannel());
@@ -225,6 +229,30 @@ public class Pix
 	public String toString()
 	{
 		return red + ", " + green + ", " + blue;
+	}
+	public boolean equal(Object o)
+	{
+		if( o instanceof Pix )
+		{
+			Pix p = (Pix)o;
+			if( Math.abs( red - p.getRed() ) > COMPARE_THRESHOLD )
+			{
+				return false;
+			}
+			if( Math.abs( blue - p.getBlue() ) > COMPARE_THRESHOLD )
+			{
+				return false;
+			}
+			if( Math.abs( green - p.getGreen() ) > COMPARE_THRESHOLD )
+			{
+				return false;
+			}
+			return true;
+		} 
+		else 
+		{
+			return false;
+		}
 	}
 
 }
