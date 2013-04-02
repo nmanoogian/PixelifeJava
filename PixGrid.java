@@ -13,9 +13,16 @@ public class PixGrid
 
 	public PixGrid(int xsize, int ysize)
 	{
-		grid = new Pix[xsize][ysize];
+		grid = new Pix[xsize][ysize]();
 	}
 
+	/*public void generate_blank_world()
+	{
+		for(  )
+	}
 
-	
+	public void generate_world()
+	{
+		for( i )
+	}*/
 }
