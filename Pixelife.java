@@ -10,6 +10,10 @@ import javax.swing.JPanel;
 /**
  * Pixelife class
  * Manages GUI and pixel painting
+ *
+ * Authors:
+ * Nic Manoogian
+ * Michael Lyons
  */
 public class Pixelife extends JPanel
 {
