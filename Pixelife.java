@@ -61,6 +61,33 @@ public class Pixelife extends JPanel
 		g2.drawImage(canvas, null, null);
 	}
 
+
+	public static void main(String [] args)
+	{
+		PixGrid myGrid = new PixGrid(640,480);
+
+		// int width = 640;
+		// int height = 480;
+		// JFrame frame = new JFrame("test");
+
+		//Pixelife plife = new Pixelife(width, height, 100000);
+
+
+		//frame.add(plife);
+		frame.pack();
+		frame.setVisible(true);
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		myGrid.draw(canvas);
+
+		//plife.run();
+
+
+
+	}
+
+}
 	// /**
 	//  * Creates a set number pixels
 	//  * @param numPixels number of pixels
@@ -207,24 +234,3 @@ public class Pixelife extends JPanel
 	// }
 
 
-	public static void main(String [] args)
-	{
-		int width = 640;
-		int height = 480;
-		JFrame frame = new JFrame("test");
-
-		Pixelife plife = new Pixelife(width, height, 100000);
-
-
-		frame.add(plife);
-		frame.pack();
-		frame.setVisible(true);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//plife.run();
-
-
-
-	}
-
-}
