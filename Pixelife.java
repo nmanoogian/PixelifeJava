@@ -115,21 +115,14 @@ public class Pixelife extends JPanel
 				if (canvas.getRGB(i, j) != (Color.WHITE).getRGB())
 				{
 					int dir = (int)(Math.random()*4);
-					if (dir == 0)
+					switch(dir)
 					{
-
-					}
-					else if (dir == 1)
-					{
-
-					}
-					else if (dir == 2)
-					{
-
-					}
-					else
-					{
-
+						case 1:
+						case 2:
+						case 3:
+						case 4:
+						default:
+							break;
 					}
 				}
 
@@ -162,9 +155,6 @@ public class Pixelife extends JPanel
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pix.run();
-
-
-
 	}
 
 }
