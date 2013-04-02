@@ -10,6 +10,12 @@ public class Pix
 	private int green;
 	private int blue;
 
+	/**
+	 * Constructs a Pix using rgb values
+	 * @param r red channel
+	 * @param g green channel
+	 * @param b blue channel
+	 */
 	public Pix(int r, int g, int b)
 	{
 		red = r;
@@ -17,6 +23,9 @@ public class Pix
 		blue = b;
 	}
 
+	/**
+	 * Constructs a Pix using non-duplicative random channels
+	 */
 	public Pix()
 	{
 		int r = (int)(Math.random() * 256);
@@ -31,11 +40,56 @@ public class Pix
 		}
 	}
 
+	/**
+	 * Sets a Pix using rgb values
+	 * @param r red channel
+	 * @param g green channel
+	 * @param b blue channel
+	 */
 	public void setPix(int r, int g, int b)
 	{
 		red = r;
 		green = g;
 		blue = b;
+	}
+
+	/**
+	 * Sets a Pix using another Pix
+	 * @param p other Pix
+	 */
+	public void setPix(Pix p)
+	{
+		red = p.getRed();
+		green = p.getGreen();
+		blue = p.getBlue();
+	}
+
+	/**
+	 * Return red channel
+	 * @return red channel
+	 */
+	public int getRed()
+	{
+		return red;
+	}
+
+	/**
+	 * Return green channel
+	 * @return green channel
+	 */
+	public int getGreen()
+	{
+		return green;
+
+	}
+
+	/**
+	 * Return blue channel
+	 * @return blue channel
+	 */
+	public int getBlue()
+	{
+		return blue;
 	}
 
 	/**
