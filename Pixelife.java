@@ -10,6 +10,10 @@ import javax.swing.JPanel;
 /**
  * Pixelife class
  * Manages GUI and pixel painting
+ *
+ * Authors:
+ * Nic Manoogian
+ * Michael Lyons
  */
 public class Pixelife extends JPanel
 {
@@ -158,6 +162,7 @@ public class Pixelife extends JPanel
 				{
 					//Select a direction and calculate coordinates
 					int dir = (int)(Math.random()*4);
+<<<<<<< HEAD
 					int interi = i;
 					int interj = j;
 					if (dir == 0)
@@ -189,6 +194,16 @@ public class Pixelife extends JPanel
 							canvas.setRGB();
 						}
 
+=======
+					switch(dir)
+					{
+						case 1:
+						case 2:
+						case 3:
+						case 4:
+						default:
+							break;
+>>>>>>> 74ba77791209c6bd25ed34a66b59eac29da19d34
 					}
 				}
 
@@ -210,7 +225,7 @@ public class Pixelife extends JPanel
 	{
 		int width = 640;
 		int height = 480;
-		JFrame frame = new JFrame("test");
+		JFrame frame = new JFrame("Pixel Life");
 
 		Pixelife pix = new Pixelife(width, height, 100000);
 
@@ -220,10 +235,14 @@ public class Pixelife extends JPanel
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+<<<<<<< HEAD
 		//pix.run();
 
 
 
+=======
+		pix.run();
+>>>>>>> 74ba77791209c6bd25ed34a66b59eac29da19d34
 	}
 
 }
