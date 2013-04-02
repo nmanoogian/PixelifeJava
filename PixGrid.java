@@ -76,6 +76,6 @@ public class PixGrid
 	public void movePixel(int ix, int iy, int x, int y)
 	{
 		grid[x][y].setPix(grid[ix][iy]);
-		grid[ix][iy].setPix(0,0,0);
+		grid[ix][iy].setPix(255,255,255);
 	}
 }
