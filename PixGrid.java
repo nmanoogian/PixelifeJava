@@ -57,7 +57,8 @@ public class PixGrid
 				canvas.setRGB(i, j, (new Color(15,15,15)).getRGB());
 			}
 		}
-		return canvas;
+		
+		g2.drawImage(canvas, null, null);
 	}
 
 	public String get_pixel_at(int x, int y)
@@ -75,7 +76,7 @@ public class PixGrid
 	 */
 	public void movePixel(Pix p, int ix, int iy, int x, int y)
 	{
-		grid[x][y].set(p);
+		grid[x][y].setPix(p);
 		grid[ix][iy] = new Pix(0, 0, 0);
 	}
 }

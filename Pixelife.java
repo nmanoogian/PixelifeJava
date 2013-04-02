@@ -42,7 +42,8 @@ public class Pixelife extends JPanel
 	{
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		g2.drawImage(canvas, null, null);
+		//g2.drawImage(canvas, null, null);
+		myGrid.draw(g2);g2.drawImage(canvas, null, null);
 	}
 
 	public void run()
