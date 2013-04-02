@@ -217,6 +217,11 @@ public class Pix
 		return (new Color(red,green,blue)).getRGB();
 	}
 
+	public boolean isWhite()
+	{
+		return (red == 255 && blue == 255 && green == 255);
+	}
+
 	public String toString()
 	{
 		return red + ", " + green + ", " + blue;
