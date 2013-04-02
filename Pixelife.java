@@ -186,7 +186,7 @@ public class Pixelife extends JPanel
 					{
 						if (inBounds(interi,interj))
 						{
-							canvas.setRGB();
+							//canvas.setRGB();
 						}
 
 					}
