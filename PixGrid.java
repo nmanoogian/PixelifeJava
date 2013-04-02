@@ -13,18 +13,15 @@ public class PixGrid
 
 	public PixGrid()
 	{
-		canvas = new BufferedImage(640, 480, BufferedImage.TYPE_INT_ARGB);
 		// Defaults to 640x480
 		grid = new Pix[640][480];
 	}
 
 	public PixGrid(int xsize, int ysize)
 	{
-		canvas = new BufferedImage(xsize, ysize, BufferedImage.TYPE_INT_ARGB);
 		grid = new Pix[xsize][ysize];
 		generate_blank_world();
-		generate_world(100000);
-		//grid[0][0].set(0,0,0);
+		generate_world(50000);
 	}
 	public void generate_blank_world()
 	{
@@ -32,7 +29,7 @@ public class PixGrid
 		{
 			for( int j = 0; j < grid[0].length; j ++ )
 			{
-				grid[i][j] = new Pix();
+				grid[i][j] = new Pix(255,255,255);
 			}
 		}
 	}
@@ -46,24 +43,41 @@ public class PixGrid
 		}
 	}
 
-	public void draw(Graphics2D g2)
+	public Pix[][] getGrid()
 	{
-		System.out.println(grid.length);
-		for( int i = 0; i < grid.length; i++ )
-		{
-			for( int j = 0; j < grid[0].length; j ++ )
-			{
-				//canvas.setRGB(i, j, grid[i][j].getRGB());
-				canvas.setRGB(i, j, (new Color(15,15,15)).getRGB());
-			}
-		}
-		
-		g2.drawImage(canvas, null, null);
+		return grid;
 	}
 
 	public String get_pixel_at(int x, int y)
 	{
 		return "";
+	}
+
+	public void update()
+	{
+		for( int i = 0; i < grid.length; i++ )
+		{
+			for( int j = 0; j < grid[0].length; j ++ )
+			{
+				if( !grid[i][j].isWhite() )
+				{
+					int direction = (int)(Math.random() * 4)
+					int new_x, new_y;
+					switch(direction)
+					{
+						case 1:
+							
+						case 2:
+						case 3:
+						case 4:
+						default:
+							break;
+
+
+					}
+				}
+			}
+		}
 	}
 
 	/**
@@ -76,6 +90,6 @@ public class PixGrid
 	public void movePixel(int ix, int iy, int x, int y)
 	{
 		grid[x][y].setPix(grid[ix][iy]);
-		grid[ix][iy].setPix(0,0,0);
+		grid[ix][iy].setPix(255,255,255);
 	}
 }

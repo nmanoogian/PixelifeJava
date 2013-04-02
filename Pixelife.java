@@ -30,7 +30,7 @@ public class Pixelife extends JPanel
 		width = w;
 		height = h;
 
-		PixGrid myGrid = new PixGrid(w, h);
+		myGrid = new PixGrid(w, h);
 	}
 
 	public Dimension getPreferredSize()
@@ -42,13 +42,15 @@ public class Pixelife extends JPanel
 	{
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		//g2.drawImage(canvas, null, null);
-		myGrid.draw(g2);g2.drawImage(canvas, null, null);
+		g2.drawImage(canvas, null, null);
 	}
 
 	public void run()
 	{
-		//canvas = myGrid.draw();
+		myGrid.update();
+		
+		draw();
+
 		try
 		{
 			Thread.sleep(1000);
@@ -60,8 +62,24 @@ public class Pixelife extends JPanel
 		repaint();
 	}
 
+	public void draw()
+	{
+		Pix[][] grid = myGrid.getGrid();
+		for( int i = 0; i < grid.length; i++ )
+		{
+			for( int j = 0; j < grid[0].length; j ++ )
+			{
+				canvas.setRGB(i, j, grid[i][j].getRGB());
+			}
+		}
+	}
+
 	public static void main(String [] args)
 	{
+
+		Pix derp = new Pix();
+		System.out.println(derp);
+
 		int width = 640;
 		int height = 480;
 		JFrame frame = new JFrame("test");

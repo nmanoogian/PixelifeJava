@@ -38,6 +38,10 @@ public class Pix
 			g = (int)(Math.random() * 256);
 			b = (int)(Math.random() * 256);
 		}
+
+		red = r;
+		green = g;
+		blue = b;
 	}
 
 	/**
