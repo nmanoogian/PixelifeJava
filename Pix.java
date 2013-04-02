@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /**
  * Pixel Class
  * with Red Green and Blue streams
@@ -29,21 +31,65 @@ public class Pix
 		}
 	}
 
-	public void set(int r, int g, int b)
+	public void setPix(int r, int g, int b)
 	{
 		red = r;
 		green = g;
 		blue = b;
 	}
 
-	public void getDomChannel()
+	/**
+	 * Increases dominant channel
+	 */
+	public void changeWithChannel(int channel)
 	{
+
+	}
+
+	/**
+	 * Returns the dominant channel
+	 * 0 => Red; 1 => Blue; 2 => Green
+	 * @return integer for channel
+	 */
+	public int getDomChannel()
+	{
+		if (red > green && red > blue)
+		{
+			return 0;
+		}
+		else if (blue > green && blue > red)
+		{
+			return 1;
+		}
+		else if (green > red && green > blue)
+		{
+			return 2;
+		}
+		else
+		{
+			return -1;
+		}
 
 	}
 
 	public void interact(Pix p)
 	{
+		if (getDomChannel() == p.getDomChannel())
+		{
+			//changeWithChannel();
 
+		}
+
+	}
+
+	public int getRGB()
+	{
+		return (new Color(red,green,blue)).getRGB();
+	}
+
+	public String toString()
+	{
+		return red + ", " + green + ", " + blue;
 	}
 
 }
