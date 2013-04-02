@@ -16,6 +16,7 @@ public class Pixelife extends JPanel
 	private BufferedImage canvas;
 	private int width;
 	private int height;
+
 	/**
 	 * Constructor with width and height
 	 * @param w width in pixels
@@ -212,15 +213,15 @@ public class Pixelife extends JPanel
 		int height = 480;
 		JFrame frame = new JFrame("test");
 
-		Pixelife pix = new Pixelife(width, height, 100000);
+		Pixelife plife = new Pixelife(width, height, 100000);
 
 
-		frame.add(pix);
+		frame.add(plife);
 		frame.pack();
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//pix.run();
+		//plife.run();
 
 
 
