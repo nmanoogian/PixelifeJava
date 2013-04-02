@@ -6,19 +6,21 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class PixGrid 
+public class PixGrid
 {
-
+	private BufferedImage canvas;
 	private Pix[][] grid;
 
 	public PixGrid()
 	{
+		canvas = new BufferedImage(640, 480, BufferedImage.TYPE_INT_ARGB);
 		// Defaults to 640x480
 		grid = new Pix[640][480];
 	}
 
 	public PixGrid(int xsize, int ysize)
 	{
+		canvas = new BufferedImage(xsize, ysize, BufferedImage.TYPE_INT_ARGB);
 		grid = new Pix[xsize][ysize];
 		generate_blank_world();
 		generate_world(100000);
@@ -44,15 +46,18 @@ public class PixGrid
 		}
 	}
 
-	public void draw(BufferedImage canvas)
+	public void draw(Graphics2D g2)
 	{
+		System.out.println(grid.length);
 		for( int i = 0; i < grid.length; i++ )
 		{
 			for( int j = 0; j < grid[0].length; j ++ )
 			{
-				canvas.setRGB(i, j, grid[i][j].getRGB());
+				//canvas.setRGB(i, j, grid[i][j].getRGB());
+				canvas.setRGB(i, j, (new Color(15,15,15)).getRGB());
 			}
 		}
+		return canvas;
 	}
 
 	public String get_pixel_at(int x, int y)

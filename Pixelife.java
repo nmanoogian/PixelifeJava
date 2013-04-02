@@ -30,8 +30,7 @@ public class Pixelife extends JPanel
 		width = w;
 		height = h;
 
-		PixGrid myGrid = new PixGrid(w,h);
-		//generatePixels(n);
+		PixGrid myGrid = new PixGrid(w, h);
 	}
 
 	public Dimension getPreferredSize()
@@ -48,7 +47,7 @@ public class Pixelife extends JPanel
 
 	public void run()
 	{
-		myGrid.draw(canvas);
+		//canvas = myGrid.draw();
 		try
 		{
 			Thread.sleep(1000);
@@ -68,19 +67,13 @@ public class Pixelife extends JPanel
 
 		Pixelife plife = new Pixelife(width, height, 100000);
 
-
 		frame.add(plife);
 		frame.pack();
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//myGrid.draw(canvas);
-
-		//plife.run();
-
-
-
+		plife.run();
 	}
 
 }
