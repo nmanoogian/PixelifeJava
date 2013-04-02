@@ -76,10 +76,6 @@ public class Pixelife extends JPanel
 
 	public static void main(String [] args)
 	{
-
-		Pix derp = new Pix();
-		System.out.println(derp);
-
 		int width = 640;
 		int height = 480;
 		JFrame frame = new JFrame("test");

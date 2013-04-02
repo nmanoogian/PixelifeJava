@@ -81,7 +81,6 @@ public class PixGrid
 				if( !grid[i][j].isWhite() )
 				{
 					int direction = (int)(Math.random() * 4);
-					int new_x, new_y;
 					switch(direction)
 					{
 						case 0:
