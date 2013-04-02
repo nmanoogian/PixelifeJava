@@ -29,7 +29,7 @@ public class Pixelife extends JPanel
 		width = w;
 		height = h;
 		fillCanvas(Color.WHITE);
-		generatePixels(n);
+		//generatePixels(n);
 	}
 
 	/**
@@ -61,150 +61,150 @@ public class Pixelife extends JPanel
 		g2.drawImage(canvas, null, null);
 	}
 
-	/**
-	 * Creates a set number pixels
-	 * @param numPixels number of pixels
-	 */
-	public void generatePixels(int numPixels)
-	{
-		System.out.println("Generating Pixels");
+	// /**
+	//  * Creates a set number pixels
+	//  * @param numPixels number of pixels
+	//  */
+	// public void generatePixels(int numPixels)
+	// {
+	// 	System.out.println("Generating Pixels");
 
-		for (int i = 0; i < numPixels; i++)
-		{
-			//Choose some random colors
-			int red = (int)(Math.random() * 256);
-			int green = (int)(Math.random() * 256);
-			int blue = (int)(Math.random() * 256);
+	// 	for (int i = 0; i < numPixels; i++)
+	// 	{
+	// 		//Choose some random colors
+	// 		int red = (int)(Math.random() * 256);
+	// 		int green = (int)(Math.random() * 256);
+	// 		int blue = (int)(Math.random() * 256);
 
-			//Choose some random positions
-			int x = (int)(Math.random()*width);
-			int y = (int)(Math.random()*height);
-
-
-			//Make sure locations are different
-			while (canvas.getRGB(x,y) != (Color.WHITE).getRGB())
-			{
-				x = (int)(Math.random()*width);
-				y = (int)(Math.random()*height);
-			}
+	// 		//Choose some random positions
+	// 		int x = (int)(Math.random()*width);
+	// 		int y = (int)(Math.random()*height);
 
 
-			//Make sure colors are different
-			while (red == green || green == blue || blue == red)
-			{
-				red = (int)(Math.random() * 256);
-				green = (int)(Math.random() * 256);
-				blue = (int)(Math.random() * 256);
-			}
-
-			//set canvas
-			setPixel(x, y, red, green, blue);
-			//canvas.setRGB(x, y, (new Color(red,green,blue)).getRGB());
-		}
-
-	}
+	// 		//Make sure locations are different
+	// 		while (canvas.getRGB(x,y) != (Color.WHITE).getRGB())
+	// 		{
+	// 			x = (int)(Math.random()*width);
+	// 			y = (int)(Math.random()*height);
+	// 		}
 
 
-	/**
-	 * 
-	 * @param i row
-	 * @param j column
-	 * @param r red integer
-	 * @param b blue integer
-	 * @param g green integer
-	 */
-	public void setPixel(int i, int j, int r, int g, int b)
-	{
-		canvas.setRGB(i, j, (new Color(r,g,b)).getRGB());
-	}
+	// 		//Make sure colors are different
+	// 		while (red == green || green == blue || blue == red)
+	// 		{
+	// 			red = (int)(Math.random() * 256);
+	// 			green = (int)(Math.random() * 256);
+	// 			blue = (int)(Math.random() * 256);
+	// 		}
 
-	/**
-	 * Determine if a pixel is in bounds
-	 * @param i row
-	 * @param j column
-	 */
-	public boolean inBounds(int i, int j)
-	{
-		return (i >= 0 && i < height && j >= 0 && j < width);
-	}
+	// 		//set canvas
+	// 		setPixel(x, y, red, green, blue);
+	// 		//canvas.setRGB(x, y, (new Color(red,green,blue)).getRGB());
+	// 	}
 
-	/**
-	 * Determine if a pixel is in bounds and non-white
-	 * @param i row
-	 * @param j column
-	 */
-	public boolean isPixel(int i, int j)
-	{
-		if (inBounds(i,j))
-		{
-			return (canvas.getRGB(i, j) != (Color.WHITE).getRGB());
-		}
-		else
-		{
-			return false;
-		}
-	}
+	// }
 
-	/**
-	 * Run the main loop
-	 * 
-	 */
-	public void run()
-	{
-		for (int i = 0; i < width; i++)
-		{
-			for (int j = 0; j < height; j++)
-			{
-				if (isPixel(i,j))
-				{
-					//Select a direction and calculate coordinates
-					int dir = (int)(Math.random()*4);
-					int interi = i;
-					int interj = j;
-					if (dir == 0)
-					{
-						interi--;
-					}
-					else if (dir == 1)
-					{
-						interi++;
 
-					}
-					else if (dir == 2)
-					{
-						interj--;
-					}
-					else
-					{
-						interj++;
-					}
+	// /**
+	//  * 
+	//  * @param i row
+	//  * @param j column
+	//  * @param r red integer
+	//  * @param b blue integer
+	//  * @param g green integer
+	//  */
+	// public void setPixel(int i, int j, int r, int g, int b)
+	// {
+	// 	canvas.setRGB(i, j, (new Color(r,g,b)).getRGB());
+	// }
 
-					if (isPixel(interi, interj))
-					{
-						//Interact with pixel
-					}
-					else 
-					{
-						if (inBounds(interi,interj))
-						{
-							//canvas.setRGB();
-						}
+	// /**
+	//  * Determine if a pixel is in bounds
+	//  * @param i row
+	//  * @param j column
+	//  */
+	// public boolean inBounds(int i, int j)
+	// {
+	// 	return (i >= 0 && i < height && j >= 0 && j < width);
+	// }
 
-					}
-				}
+	// /**
+	//  * Determine if a pixel is in bounds and non-white
+	//  * @param i row
+	//  * @param j column
+	//  */
+	// public boolean isPixel(int i, int j)
+	// {
+	// 	if (inBounds(i,j))
+	// 	{
+	// 		return (canvas.getRGB(i, j) != (Color.WHITE).getRGB());
+	// 	}
+	// 	else
+	// 	{
+	// 		return false;
+	// 	}
+	// }
 
-			}
-		}
-		try
-		{
-			Thread.sleep(1000);
-		}
-		catch(InterruptedException e)
-		{
-			System.out.println("interrupted");
-		}
-		repaint();
-	}
+	// /**
+	//  * Run the main loop
+	//  * 
+	//  */
+	// public void run()
+	// {
+	// 	for (int i = 0; i < width; i++)
+	// 	{
+	// 		for (int j = 0; j < height; j++)
+	// 		{
+	// 			if (isPixel(i,j))
+	// 			{
+	// 				//Select a direction and calculate coordinates
+	// 				int dir = (int)(Math.random()*4);
+	// 				int interi = i;
+	// 				int interj = j;
+	// 				if (dir == 0)
+	// 				{
+	// 					interi--;
+	// 				}
+	// 				else if (dir == 1)
+	// 				{
+	// 					interi++;
+
+	// 				}
+	// 				else if (dir == 2)
+	// 				{
+	// 					interj--;
+	// 				}
+	// 				else
+	// 				{
+	// 					interj++;
+	// 				}
+
+	// 				if (isPixel(interi, interj))
+	// 				{
+	// 					//Interact with pixel
+	// 				}
+	// 				else 
+	// 				{
+	// 					if (inBounds(interi,interj))
+	// 					{
+	// 						//canvas.setRGB();
+	// 					}
+
+	// 				}
+	// 			}
+
+	// 		}
+	// 	}
+	// 	try
+	// 	{
+	// 		Thread.sleep(1000);
+	// 	}
+	// 	catch(InterruptedException e)
+	// 	{
+	// 		System.out.println("interrupted");
+	// 	}
+	// 	repaint();
+	// }
 
 
 	public static void main(String [] args)
