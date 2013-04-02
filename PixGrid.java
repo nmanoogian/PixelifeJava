@@ -62,15 +62,14 @@ public class PixGrid
 
 	/**
 	 * Moves a Pix
-	 * @param p Pix to move
 	 * @param ix inital x location
 	 * @param ix inital y location
 	 * @param x ending x location
 	 * @param y ending y location
 	 */
-	public void movePixel(Pix p, int ix, int iy, int x, int y)
+	public void movePixel(int ix, int iy, int x, int y)
 	{
-		grid[x][y].set(p);
-		grid[ix][iy] = new Pix(0, 0, 0);
+		grid[x][y].setPix(grid[ix][iy]);
+		grid[ix][iy].setPix(0,0,0);
 	}
 }
