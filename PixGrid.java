@@ -21,7 +21,8 @@ public class PixGrid
 	{
 		grid = new Pix[xsize][ysize];
 		generate_blank_world();
-		grid[0][0].set(0,0,0);
+		generate_world(100000);
+		//grid[0][0].set(0,0,0);
 	}
 	public void generate_blank_world()
 	{
@@ -29,14 +30,18 @@ public class PixGrid
 		{
 			for( int j = 0; j < grid[0].length; j ++ )
 			{
-				grid[i][j] = new Pix(0,0,0);
+				grid[i][j] = new Pix();
 			}
 		}
 	}
 
-	public void generate_world()
+	public void generate_world(int number)
 	{
-		// for( i )
+		for(int i = 0; i < number; i ++)
+		{
+			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * 
+				grid[0].length)] = new Pix();
+		}
 	}
 
 	public void draw(BufferedImage canvas)
@@ -45,7 +50,7 @@ public class PixGrid
 		{
 			for( int j = 0; j < grid[0].length; j ++ )
 			{
-				canvas.setRGB(i, j, (new Color(0,0,0)).getRGB());
+				canvas.setRGB(i, j, grid[i][j].getRGB());
 			}
 		}
 	}

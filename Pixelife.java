@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 public class Pixelife extends JPanel
 {
 	private BufferedImage canvas;
+	private PixGrid myGrid;
 	private int width;
 	private int height;
 
@@ -28,25 +29,9 @@ public class Pixelife extends JPanel
 		canvas = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		width = w;
 		height = h;
-		fillCanvas(Color.WHITE);
-		//generatePixels(n);
-	}
 
-	/**
-	 * Fills the canvas with a color
-	 * @param c color
-	 */
-	public void fillCanvas(Color c)
-	{
-		int color = c.getRGB();
-		for (int x = 0; x < canvas.getWidth(); x++)
-		{
-			for (int y = 0; y < canvas.getHeight(); y++)
-			{
-				canvas.setRGB(x, y, color);
-			}
-		}
-		repaint();
+		PixGrid myGrid = new PixGrid(w,h);
+		//generatePixels(n);
 	}
 
 	public Dimension getPreferredSize()
@@ -61,25 +46,36 @@ public class Pixelife extends JPanel
 		g2.drawImage(canvas, null, null);
 	}
 
+	public void run()
+	{
+		myGrid.draw(canvas);
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException e)
+		{
+			System.out.println("interrupted");
+		}
+		repaint();
+	}
 
 	public static void main(String [] args)
 	{
-		PixGrid myGrid = new PixGrid(640,480);
+		int width = 640;
+		int height = 480;
+		JFrame frame = new JFrame("test");
 
-		// int width = 640;
-		// int height = 480;
-		// JFrame frame = new JFrame("test");
-
-		//Pixelife plife = new Pixelife(width, height, 100000);
+		Pixelife plife = new Pixelife(width, height, 100000);
 
 
-		//frame.add(plife);
+		frame.add(plife);
 		frame.pack();
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		myGrid.draw(canvas);
+		//myGrid.draw(canvas);
 
 		//plife.run();
 
