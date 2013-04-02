@@ -149,6 +149,7 @@ public class Pix
 		if (getDomChannel() == p.getDomChannel())
 		{
 			changeWithChannel(getDomChannel());
+			p.changeWithChannel(p.getDomChannel());
 		}
 
 	}
