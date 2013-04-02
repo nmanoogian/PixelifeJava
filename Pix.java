@@ -43,6 +43,78 @@ public class Pix
 	 */
 	public void changeWithChannel(int channel)
 	{
+		switch (channel)
+		{
+			case 0:
+				//Inc dominant
+				if (red + 2 <= 255)
+				{
+					red += 2;
+				}
+				else
+				{
+					red = 255;
+				}
+
+				//Dec mins
+				if (blue - 1 >= 0)
+				{
+					blue--;
+				}
+
+				if (green - 1 >= 0)
+				{
+					green--;
+				}
+				break;
+			case 1:
+				//Inc dominant
+				if (green + 2 <= 255)
+				{
+					green += 2;
+				}
+				else
+				{
+					green = 255;
+				}
+
+				//Dec mins
+				if (blue - 1 >= 0)
+				{
+					blue--;
+				}
+
+				if (red - 1 >= 0)
+				{
+					red--;
+				}
+				break;
+			case 2:
+				//Inc dominant
+				if (blue + 2 <= 255)
+				{
+					blue += 2;
+				}
+				else
+				{
+					blue = 255;
+				}
+
+				//Dec mins
+				if (red - 1 >= 0)
+				{
+					red--;
+				}
+
+				if (green - 1 >= 0)
+				{
+					green--;
+				}
+				break;
+			case -1:
+				System.out.println("No dominant channel");
+				break;
+		}
 
 	}
 
@@ -76,8 +148,7 @@ public class Pix
 	{
 		if (getDomChannel() == p.getDomChannel())
 		{
-			//changeWithChannel();
-
+			changeWithChannel(getDomChannel());
 		}
 
 	}
