@@ -1,15 +1,17 @@
 import java.awt.Color;
 /**
- * Pixel Class
+ * Pix Class
  * with Red Green and Blue streams
+ * @author Nic Manoogian <zimmoz3@verizon.net>
+ * @author Mike Lyons
  */
 public class Pix
 {
 	public static final int COMPARE_THRESHOLD = 50;
 
-	private int red;
-	private int green;
-	private int blue;
+	protected int red;		//Red Channel
+	protected int green;	//Green Channel
+	protected int blue;		//Blue Channel
 
 	/**
 	 * Constructs a Pix using rgb values
@@ -70,6 +72,28 @@ public class Pix
 	}
 
 	/**
+	 * Sets a Pix using random values
+	 */
+	public void setPix()
+	{
+
+		int r = (int)(Math.random() * 256);
+		int g = (int)(Math.random() * 256);
+		int b = (int)(Math.random() * 256);
+
+		while (r == g || g == b || b == r)
+		{
+			r = (int)(Math.random() * 256);
+			g = (int)(Math.random() * 256);
+			b = (int)(Math.random() * 256);
+		}
+
+		red = r;
+		green = g;
+		blue = b;
+	}
+
+	/**
 	 * Return red channel
 	 * @return red channel
 	 */
@@ -113,9 +137,11 @@ public class Pix
 	}
 
 	/**
-	 * Increases dominant channel
+	 * Increases dominant channel by factor
+	 * Decreases non-dominant channel by a factor
+	 * @param channel dominant channel
 	 */
-	private void changeWithChannel(int channel)
+	public void changeWithChannel(int channel)
 	{
 		switch (channel)
 		{
@@ -186,7 +212,6 @@ public class Pix
 				}
 				break;
 			case -1:
-				
 				break;
 		}
 
@@ -197,7 +222,7 @@ public class Pix
 	 * 0 => Red; 1 => Blue; 2 => Green
 	 * @return integer for channel
 	 */
-	private int getDomChannel()
+	public int getDomChannel()
 	{
 		if (red > green && red > blue)
 		{
@@ -219,6 +244,10 @@ public class Pix
 
 	}
 
+	/**
+	 * Changes (or does not change) the Pix and Pix interactee
+	 * @param p Pix interactee
+	 */
 	public void interact(Pix p)
 	{
 		//System.out.println(toString() + " and " + p.toString());
@@ -231,20 +260,39 @@ public class Pix
 
 	}
 
+	/**
+	 * Returns RGB integer representation of a Pix
+	 * @return integer RGB of Pix
+	 */
 	public int getRGB()
 	{
 		return (new Color(red,green,blue)).getRGB();
 	}
 
+
+	/**
+	 * Returns if the Pix is white
+	 * @return true if Pix is white, false otherwise
+	 */
 	public boolean isWhite()
 	{
 		return (red == 255 && blue == 255 && green == 255);
 	}
 
+	/**
+	 * Represents a Pix as a string using RGB values
+	 * @return integer representation
+	 */
 	public String toString()
 	{
 		return red + ", " + green + ", " + blue;
 	}
+
+	/**
+	 * Determines if two Pix objects are "equal" based on a comparison threshold
+	 * @param o Other object in question
+	 * @return true if equal, false otherwise
+	 */
 	public boolean equal(Object o)
 	{
 		if( o instanceof Pix )

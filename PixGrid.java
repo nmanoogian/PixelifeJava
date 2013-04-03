@@ -6,6 +6,13 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+
+/**
+ * PixGrid Class
+ * Hold Pix objects and handles movement
+ * @author Nic Manoogian <zimmoz3@verizon.net>
+ * @author Mike Lyons
+ */
 public class PixGrid
 {
 	private BufferedImage canvas;
@@ -21,11 +28,14 @@ public class PixGrid
 	{
 		grid = new Pix[xsize][ysize];
 		generate_blank_world();
-		generate_world(10);
-
-		grid[300][300] = new NonconformingPix();
-
 	}
+
+	public PixGrid(int xsize, int ysize, int n)
+	{
+		grid = new Pix[xsize][ysize];
+		generate_blank_world();
+	}
+
 	public void generate_blank_world()
 	{
 		for( int i = 0; i < grid.length; i++ )
@@ -42,8 +52,9 @@ public class PixGrid
 		for(int i = 0; i < number; i ++)
 		{
 			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * 
-				grid[0].length)] = new Pix();
+				grid[0].length)] = new NonconformingPix();
 		}
+
 	}
 
 	public Pix[][] getGrid()
@@ -116,8 +127,17 @@ public class PixGrid
 	 */
 	public void movePixel(int ix, int iy, int x, int y)
 	{
-		grid[x][y].setPix(grid[ix][iy]);
-		//grid[ix][iy] = new Pix();
+		try 
+		{
+			grid[x][y] = grid[ix][iy].getClass().newInstance();
+			grid[x][y].setPix(grid[ix][iy]);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		//Uncomment to remove spread
+		//grid[ix][iy] = new NonconformingPix(255,255,255);
 	}
 
 	public String toString()
