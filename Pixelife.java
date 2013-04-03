@@ -47,6 +47,9 @@ public class Pixelife extends JPanel
 		g2.drawImage(canvas, null, null);
 	}
 
+	/**
+	 * Update and paint loop
+	 */
 	public void run()
 	{
 		while(true)
@@ -67,6 +70,9 @@ public class Pixelife extends JPanel
 		}
 	}
 
+	/**
+	 * Draws Pix grid to the canvas object
+	 */
 	public void draw()
 	{
 		Pix[][] grid = myGrid.getGrid();
@@ -81,32 +87,24 @@ public class Pixelife extends JPanel
 
 	public static void main(String [] args)
 	{
+		//Set window size
 		int width = 640;
 		int height = 480;
-		// int width = 4;
-		// int height = 4;
 
-		// PixGrid testGrid = new PixGrid(width, height);
+		//Make new frame
+		JFrame frame = new JFrame("main");
 
-		// testGrid.getGrid()[1][1] = new Pix();
-		// testGrid.getGrid()[2][1] = new Pix();
-
-		// System.out.println( testGrid );
-
-		// testGrid.update();
-
-		// System.out.println( testGrid );
-
-		JFrame frame = new JFrame("test");
-
+		//Make new Pixelife object
 		Pixelife plife = new Pixelife(width, height, 15);
 
+		//Add canvas to screen
 		frame.add(plife);
 		frame.pack();
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		//Loop interaction
 		plife.run();
 	}
 

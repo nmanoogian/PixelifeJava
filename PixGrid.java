@@ -56,6 +56,7 @@ public class PixGrid
 			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * 
 				grid[0].length)] = new NonconformingPix();
 		}
+
 	}
 
 
