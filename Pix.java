@@ -260,7 +260,7 @@ public class Pix
 
 	}
 
-		/**
+	/**
 	 * Transitions a Pix from one location to another
 	 * If the Pix is white, the Pix is moved. Otherwise, one Pix interacts with the other
  	 * @param ix inital x location
@@ -282,19 +282,25 @@ public class Pix
 			{
 				grid[ix][iy].interact(grid[x][y]);
 			}
-
-
 		}
 	}
 
 	/**
-	 * Loops through all non-white Pix and transitions them in a random direction (N S E W)
+	 * Updates this specific pix, moving it randomly
 	 */
-	public void update(Pix[][] grid, int i, int j)
+	public void update(int i, int j)
 	{
 		int direction = (int)(Math.random() * 4);
 		//System.out.println(direction);
-		switch(direction)
+		moveDir(Pixelife.getGrid().getGrid(), direction, i, j);
+	}
+
+	/**
+	 * Moves the direction given (N S E W)
+	 */
+	public void moveDir(Pix[][] grid, int dirNum, int i, int j)
+	{
+		switch(dirNum)
 		{
 			case 0:
 				trans(grid, i,j,i+1,j);
@@ -322,7 +328,6 @@ public class Pix
 	 */
 	public void movePixel(Pix[][] grid, int ix, int iy, int x, int y)
 	{
-		//grid[x][y] = grid[ix][iy].getClass().newInstance();
 		Spawner.spawnXY( grid[ix][iy].getClass(), x, y );
 		grid[x][y].setPix(grid[ix][iy]);
 		//Uncomment to remove spread

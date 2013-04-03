@@ -11,12 +11,13 @@ import javax.swing.JPanel;
  * Pixelife class
  * Manages GUI and pixel painting
  * @author Nic Manoogian <zimmoz3@verizon.net>
- * @author Mike Lyons
+ * @author Mike Lyons <mdl0394@gmail.com>
  */
 public class Pixelife extends JPanel
 {
 	private BufferedImage canvas;
-	private PixGrid myGrid;
+	private static PixGrid myGrid;
+	//private Spawner line_spawner;
 	private Spawner spawner;
 	private int width;
 	private int height;
@@ -34,6 +35,7 @@ public class Pixelife extends JPanel
 		height = h;
 
 		myGrid = new PixGrid(w, h, n);
+		//line_spawner = new Spawner(DirectedPix.class, myGrid, 0, h/2);
 		spawner = new Spawner(PulsePix.class, myGrid);
 		spawner.spawn(10);
 	}
@@ -58,6 +60,7 @@ public class Pixelife extends JPanel
 		while(true)
 		{
 			myGrid.update();
+			//line_spawner.update();
 			spawner.update();
 
 			draw();
@@ -111,6 +114,11 @@ public class Pixelife extends JPanel
 
 		//Loop interaction
 		plife.run();
+	}
+
+	public static PixGrid getGrid()
+	{
+		return myGrid;
 	}
 
 }
