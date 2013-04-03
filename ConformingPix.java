@@ -1,3 +1,8 @@
+/**
+ * Class ConformingPix
+ * @author Nic Manoogian <zimmoz3@verizon.net>
+ * @author Mike Lyons
+ */
 public class ConformingPix extends Pix
 {
 
@@ -10,6 +15,6 @@ public class ConformingPix extends Pix
 
 	public void interact(Pix p)
 	{
-		
+
 	}
 }

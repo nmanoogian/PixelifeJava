@@ -56,7 +56,7 @@ public class Spawner
 	/**
 	 * Creates a Spawner that will spawn a given class to a given grid
 	 * @param c Class to spawn (PulsePix.class)
-	 * @param grid pixgrid112
+	 * @param grid PixGrid object
 	 */
 	public Spawner(Class<?> c, PixGrid grid)
 	{
@@ -64,6 +64,14 @@ public class Spawner
 		this.spawnClass = c;
 		this.grid = grid;
 	}
+
+	/**
+	 * Creates a Spawner with a give class, grid and x and y velocities
+	 * @param c Class to spawn
+	 * @param grid PixGrid object
+	 * @param dx x velocity
+	 * @param dy y velocity
+	 */
 	public Spawner(Class<?> c, PixGrid grid, int dx, int dy)
 	{
 		this(c, grid);
@@ -74,6 +82,9 @@ public class Spawner
 		this.defaultY = dy;
 	}
 
+	/**
+	 * Spawns random instances of the spawn class to the grid
+	 */
 	public void spawn()
 	{
 		if(Pix.class.isAssignableFrom(spawnClass))
@@ -97,6 +108,11 @@ public class Spawner
 			System.out.println("Class not found");
 		}
 	}
+
+	/**
+	 * Spawns a number of instances of the spawn class to the grid
+	 * @param num number of instances to spawn
+	 */
 	public void spawn(int num)
 	{
 		if(Pix.class.isAssignableFrom(spawnClass))
@@ -119,6 +135,12 @@ public class Spawner
 		}
 	}
 
+	/**
+	 * Spawns a specific instance of a class to a specific x and y location
+	 * @param c class to spawn
+	 * @param x x location to spawn
+	 * @param y y location to spawn
+	 */
 	public static void spawnXY(Class<?> c, int x, int y)
 	{
 		if(Pix.class.isAssignableFrom(c))
@@ -135,6 +157,9 @@ public class Spawner
 		}
 	}
 
+	/**
+	 * Determines if a spawn is necessary, otherwise, increase counter
+	 */
 	public void update()
 	{
 		if( respawnMax != -1 )

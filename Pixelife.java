@@ -35,8 +35,11 @@ public class Pixelife extends JPanel
 		height = h;
 
 		myGrid = new PixGrid(w, h, n);
-		//line_spawner = new Spawner(DirectedPix.class, myGrid, 0, h/2);
-		spawner = new Spawner(PulsePix.class, myGrid);
+		Spawner vline_spawner = new Spawner(DirectedPix.class, myGrid, 2, h/2);
+		vline_spawner.spawn(5);
+		Spawner hline_spawner = new Spawner(DirectedPix.class, myGrid, 0, h/2);
+		hline_spawner.spawn(5);
+		spawner = new Spawner(NonconformingPix.class, myGrid);
 		spawner.spawn(10);
 	}
 

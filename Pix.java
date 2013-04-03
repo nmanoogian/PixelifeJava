@@ -286,7 +286,9 @@ public class Pix
 	}
 
 	/**
-	 * Updates this specific pix, moving it randomly
+	 * Updates this specific Pix, choosing a direction and moving it randomly
+	 * @param i x location
+	 * @param j y location
 	 */
 	public void update(int i, int j)
 	{
@@ -297,6 +299,10 @@ public class Pix
 
 	/**
 	 * Moves the direction given (N S E W)
+	 * @param grid PixGrid object
+	 * @param dirNum direction to move
+	 * @param i x location of pixel
+	 * @param j y location of pixel
 	 */
 	public void moveDir(Pix[][] grid, int dirNum, int i, int j)
 	{
