@@ -64,19 +64,22 @@ public class PixGrid
 		}
 	}
 
-	/**
-	 * Creates a number of random-location Pix of a certain type
-	 * @param number number of Pix objects to create
-	 */
-	public void generate_world(int number)
-	{
-		for(int i = 0; i < number; i ++)
-		{
-			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * grid[0].length)] = new PulsePix();
-		}
+// <<<<<<< HEAD
+// 	/**
+// 	 * Creates a number of random-location Pix of a certain type
+// 	 * @param number number of Pix objects to create
+// 	 */
+// 	public void generate_world(int number)
+// 	{
+// 		for(int i = 0; i < number; i ++)
+// 		{
+// 			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * grid[0].length)] = new PulsePix();
+// 		}
 
-	}
+// 	}
 
+// =======
+// >>>>>>> e1f460e674cfa724fd2c081b6fa5e59ab85077cf
 	/**
 	 * Returns the grid
 	 * @return grid
@@ -86,34 +89,37 @@ public class PixGrid
 		return grid;
 	}
 
-	/**
-	 * Transitions a Pix from one location to another
-	 * If the Pix is white, the Pix is moved. Otherwise, one Pix interacts with the other
- 	 * @param ix inital x location
-	 * @param ix inital y location
-	 * @param x ending x location
-	 * @param y ending y location
-	 */
-	public void trans(int ix, int iy, int x, int y)
-	{
-		// Didn't try to move out of bounds
-		if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length))
-		{
-			if (grid[x][y].isWhite())
-			{
-				// If trans location is white, move Pix
-				movePixel(ix, iy, x, y);
-			}
-			else
-			{
-				// Otherwise interact with given location
-				grid[ix][iy].interact(grid[x][y]);
-			}
+// <<<<<<< HEAD
+// 	/**
+// 	 * Transitions a Pix from one location to another
+// 	 * If the Pix is white, the Pix is moved. Otherwise, one Pix interacts with the other
+//  	 * @param ix inital x location
+// 	 * @param ix inital y location
+// 	 * @param x ending x location
+// 	 * @param y ending y location
+// 	 */
+// 	public void trans(int ix, int iy, int x, int y)
+// 	{
+// 		// Didn't try to move out of bounds
+// 		if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length))
+// 		{
+// 			if (grid[x][y].isWhite())
+// 			{
+// 				// If trans location is white, move Pix
+// 				movePixel(ix, iy, x, y);
+// 			}
+// 			else
+// 			{
+// 				// Otherwise interact with given location
+// 				grid[ix][iy].interact(grid[x][y]);
+// 			}
 
 
-		}
-	}
+// 		}
+// 	}
 
+// =======
+// >>>>>>> e1f460e674cfa724fd2c081b6fa5e59ab85077cf
 	/**
 	 * Loops through all non-white Pix and transitions them in a random direction (N S E W)
 	 */
@@ -125,49 +131,31 @@ public class PixGrid
 			{
 				if( !grid[i][j].isWhite() )
 				{
-					int direction = (int)(Math.random() * 4);
-					switch(direction)
-					{
-						case 0:
-							trans(i,j,i+1,j);
-							break;
-						case 1:
-							trans(i,j,i,j+1);
-							break;
-						case 2:
-							trans(i,j,i-1,j);
-							break;
-						case 3:
-							trans(i,j,i,j-1);
-							break;
-						default:
-							break;
-					}
+// <<<<<<< HEAD
+// 					int direction = (int)(Math.random() * 4);
+// 					switch(direction)
+// 					{
+// 						case 0:
+// 							trans(i,j,i+1,j);
+// 							break;
+// 						case 1:
+// 							trans(i,j,i,j+1);
+// 							break;
+// 						case 2:
+// 							trans(i,j,i-1,j);
+// 							break;
+// 						case 3:
+// 							trans(i,j,i,j-1);
+// 							break;
+// 						default:
+// 							break;
+// 					}
+// =======
+					grid[i][j].update(grid, i , j );
+// >>>>>>> e1f460e674cfa724fd2c081b6fa5e59ab85077cf
 				}
 			}
 		}
-	}
-
-	/**
-	 * Moves a Pix
-	 * @param ix inital x location
-	 * @param ix inital y location
-	 * @param x ending x location
-	 * @param y ending y location
-	 */
-	public void movePixel(int ix, int iy, int x, int y)
-	{
-		try 
-		{
-			grid[x][y] = grid[ix][iy].getClass().newInstance();
-			grid[x][y].setPix(grid[ix][iy]);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		//Uncomment to remove spread
-		//grid[ix][iy] = new NonconformingPix(255,255,255);
 	}
 
 	/**
