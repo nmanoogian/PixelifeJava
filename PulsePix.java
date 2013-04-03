@@ -1,5 +1,6 @@
 /**
  * PulsePix Class
+ * Pix set their default value to 100 after reaching maximum
  * @author Nic Manoogian <zimmoz3@verizon.net>
  * @author Mike Lyons
  */
@@ -83,9 +84,127 @@ public class PulsePix extends Pix
 
 				break;
 			case -1:
-				//green--;
+				if (red < 255)
+				{
+					red++;
+				}
+				if (green < 255)
+				{
+					green++;
+				}
+				if (blue < 255)
+				{
+					blue++;
+				}
 				break;
 		}
+		// switch (channel)
+		// {
+		// 	case 0:
+		// 		//Inc dominant
+		// 		if (red + 2 <= 255)
+		// 		{
+		// 			red += 2;
+		// 		}
+		// 		else
+		// 		{
+		// 			red = 100;
+		// 		}
+
+		// 		//Dec mins
+		// 		if (blue - 1 >= 0)
+		// 		{
+		// 			blue--;
+		// 		}
+		// 		else
+		// 		{
+		// 			blue = 100;
+		// 		}
+
+		// 		if (green - 1 >= 0)
+		// 		{
+		// 			green--;
+		// 		}
+		// 		else
+		// 		{
+		// 			green = 100;
+		// 		}
+		// 		break;
+		// 	case 1:
+		// 		//Inc dominant
+		// 		if (blue + 2 <= 255)
+		// 		{
+		// 			blue += 2;
+		// 		}
+		// 		else
+		// 		{
+		// 			blue = 100;
+		// 		}
+
+		// 		//Dec mins
+		// 		if (green - 1 >= 0)
+		// 		{
+		// 			green--;
+		// 		}
+		// 		else
+		// 		{
+		// 			green = 100;
+		// 		}
+
+		// 		if (red - 1 >= 0)
+		// 		{
+		// 			red--;
+		// 		}
+		// 		else
+		// 		{
+		// 			red = 100;
+		// 		}
+		// 		break;
+		// 	case 2:
+		// 		//Inc dominant
+		// 		if (green + 2 <= 255)
+		// 		{
+		// 			green += 2;
+		// 		}
+		// 		else
+		// 		{
+		// 			green = 100;
+		// 		}
+
+		// 		//Dec mins
+		// 		if (red - 1 >= 0)
+		// 		{
+		// 			red--;
+		// 		}
+		// 		else
+		// 		{
+		// 			red = 100;
+		// 		}
+
+		// 		if (blue - 1 >= 0)
+		// 		{
+		// 			blue--;
+		// 		}
+		// 		else
+		// 		{
+		// 			red = 100;
+		// 		}
+		// 		break;
+		// 	case -1:
+		// 		if (red < 255)
+		// 		{
+		// 			red++;
+		// 		}
+		// 		if (green < 255)
+		// 		{
+		// 			green++;
+		// 		}
+		// 		if (blue < 255)
+		// 		{
+		// 			blue++;
+		// 		}
+		// 		break;
+		// }
 
 	}
 

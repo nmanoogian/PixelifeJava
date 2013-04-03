@@ -18,24 +18,41 @@ public class PixGrid
 	private BufferedImage canvas;
 	private Pix[][] grid;
 
+	/**
+	 * Constructs a PixGrid with size 640x480
+	 */
 	public PixGrid()
 	{
 		// Defaults to 640x480
 		grid = new Pix[640][480];
 	}
 
+	/**
+	 * Constructs a PixGrid with size and 10 Pix objects
+	 * @param xsize width
+	 * @param ysize height
+	 */
 	public PixGrid(int xsize, int ysize)
 	{
 		grid = new Pix[xsize][ysize];
 		generate_blank_world();
 	}
 
+	/**
+	 * Constructs a PixGrid with size and n Pix objects
+	 * @param xsize width
+	 * @param ysize height
+	 * @param n number of Pix objects to add
+	 */
 	public PixGrid(int xsize, int ysize, int n)
 	{
 		grid = new Pix[xsize][ysize];
 		generate_blank_world();
 	}
 
+	/**
+	 * Fills grid with white Pix of a certain type
+	 */
 	public void generate_blank_world()
 	{
 		for( int i = 0; i < grid.length; i++ )
@@ -47,26 +64,37 @@ public class PixGrid
 		}
 	}
 
+	/**
+	 * Creates a number of random-location Pix of a certain type
+	 * @param number number of Pix objects to create
+	 */
 	public void generate_world(int number)
 	{
 		for(int i = 0; i < number; i ++)
 		{
 			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * 
-				grid[0].length)] = new NonconformingPix();
+				grid[0].length)] = new PulsePix();
 		}
 
 	}
 
+	/**
+	 * Returns the grid
+	 * @return grid
+	 */
 	public Pix[][] getGrid()
 	{
 		return grid;
 	}
 
-	public String get_pixel_at(int x, int y)
-	{
-		return "";
-	}
-
+	/**
+	 * Transitions a Pix from one location to another
+	 * If the Pix is white, the Pix is moved. Otherwise, one Pix interacts with the other
+ 	 * @param ix inital x location
+	 * @param ix inital y location
+	 * @param x ending x location
+	 * @param y ending y location
+	 */
 	public void trans(int ix, int iy, int x, int y)
 	{
 		// Didn't try to move out of bounds
@@ -86,6 +114,9 @@ public class PixGrid
 		}
 	}
 
+	/**
+	 * Loops through all non-white Pix and transitions them in a random direction (N S E W)
+	 */
 	public void update()
 	{
 		for( int i = 0; i < grid.length; i++ )
@@ -140,6 +171,10 @@ public class PixGrid
 		//grid[ix][iy] = new NonconformingPix(255,255,255);
 	}
 
+	/**
+	 * Returns a String representation of a PixGrid
+	 * @return PixGrid String representation
+	 */
 	public String toString()
 	{
 		String new_string = "";
