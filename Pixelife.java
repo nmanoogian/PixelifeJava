@@ -39,8 +39,9 @@ public class Pixelife extends JPanel
 		// vline_spawner.spawn(5);
 		// Spawner hline_spawner = new Spawner(DirectedPix.class, myGrid, 0, h/2);
 		// hline_spawner.spawn(5);
-		// Spawner conformer = new Spawner(ConformingPix.class, myGrid);
-		// conformer.spawn(10);
+		//Spawner lines = new Spawner(DirectedPix.class, myGrid);
+		//lines.spawn(10);
+
 		spawner = new Spawner(ConformingPix.class, myGrid);
 		spawner.spawn(10);
 	}
