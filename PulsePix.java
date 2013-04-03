@@ -1,5 +1,6 @@
 /**
  * PulsePix Class
+ * Pix set their default value to 100 after reaching maximum
  * @author Nic Manoogian <zimmoz3@verizon.net>
  * @author Mike Lyons
  */
@@ -44,46 +45,141 @@ public class PulsePix extends Pix
 	 */
 	public void changeWithChannel(int channel)
 	{
+		// switch (channel)
+		// {
+		// 	case 0:
+		// 		//Inc dominant
+		// 		if (red + 1 <= 255)
+		// 		{
+		// 			red += 1;
+		// 		}
+		// 		else
+		// 		{
+		// 			red = 100;
+		// 		}
+
+		// 		break;
+		// 	case 1:
+		// 		//Inc dominant
+		// 		if (blue + 1 <= 255)
+		// 		{
+		// 			blue += 1;
+		// 		}
+		// 		else
+		// 		{
+		// 			blue = 100;
+		// 		}
+
+		// 		break;
+		// 	case 2:
+		// 		//Inc dominant
+		// 		if (green + 1 <= 255)
+		// 		{
+		// 			green += 1;
+		// 		}
+		// 		else
+		// 		{
+		// 			green = 100;
+		// 		}
+
+		// 		break;
+		// 	case -1:
+		// 		//green--;
+		// 		break;
+		// }
 		switch (channel)
 		{
 			case 0:
 				//Inc dominant
-				if (red + 1 <= 255)
+				if (red + 2 <= 255)
 				{
-					red += 1;
+					red += 2;
 				}
 				else
 				{
 					red = 100;
 				}
 
+				//Dec mins
+				if (blue - 1 >= 0)
+				{
+					blue--;
+				}
+				else
+				{
+					blue = 255;
+				}
+
+				if (green - 1 >= 0)
+				{
+					green--;
+				}
+				else
+				{
+					green = 255;
+				}
 				break;
 			case 1:
 				//Inc dominant
-				if (blue + 1 <= 255)
+				if (blue + 2 <= 255)
 				{
-					blue += 1;
+					blue += 2;
 				}
 				else
 				{
 					blue = 100;
 				}
 
+				//Dec mins
+				if (green - 1 >= 0)
+				{
+					green--;
+				}
+				else
+				{
+					green = 255;
+				}
+
+				if (red - 1 >= 0)
+				{
+					red--;
+				}
+				else
+				{
+					red = 255;
+				}
 				break;
 			case 2:
 				//Inc dominant
-				if (green + 1 <= 255)
+				if (green + 2 <= 255)
 				{
-					green += 1;
+					green += 2;
 				}
 				else
 				{
 					green = 100;
 				}
 
+				//Dec mins
+				if (red - 1 >= 0)
+				{
+					red--;
+				}
+				else
+				{
+					red = 255;
+				}
+
+				if (blue - 1 >= 0)
+				{
+					blue--;
+				}
+				else
+				{
+					red = 255;
+				}
 				break;
 			case -1:
-				//green--;
 				break;
 		}
 
