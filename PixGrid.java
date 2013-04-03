@@ -84,7 +84,7 @@ public class PixGrid
 			{
 				if( !grid[i][j].isWhite() )
 				{
-					grid[i][j].update(grid, i , j );
+					grid[i][j].update( i , j );
 				}
 			}
 		}

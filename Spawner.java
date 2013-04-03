@@ -15,10 +15,19 @@
 public class Spawner
 {
 	private boolean needRespawn;
+
 	private int respawnCounter;
 	private int respawnMax;
+
 	private int numSpawn;
-	private int maxNumSpawn;
+	private int numSpawnMax;
+
+	/*
+	 * Default x and y, if none then == -1
+	 */
+	private int defaultX;
+	private int defaultY;
+
 	private Class<?> spawnClass;
 	private static PixGrid grid;
 
@@ -31,7 +40,9 @@ public class Spawner
 		respawnCounter = 0;
 		respawnMax = 100;
 		numSpawn = 10;
-		maxNumSpawn = 10;
+		numSpawnMax = 10;
+		defaultX = -1;
+		defaultY = -1;
 		spawnClass = Pix.class;
 	}
 
@@ -51,14 +62,30 @@ public class Spawner
 		this.spawnClass = c;
 		this.grid = grid;
 	}
+	public Spawner(Class<?> c, PixGrid grid, int dx, int dy)
+	{
+		this(c, grid);
+		this.spawnClass = c;
+		this.grid = grid;
+
+		this.defaultX = dx;
+		this.defaultY = dy;
+	}
 
 	public void spawn()
 	{
 		if(Pix.class.isAssignableFrom(spawnClass))
 		{
 			try {
-				grid.getGrid()[(int)(Math.random() * grid.getGrid().length)][(int)(Math.random() * 
-					grid.getGrid()[0].length)] = (Pix)spawnClass.newInstance();
+				if( defaultX != -1 && defaultY != -1 )
+				{
+					grid.getGrid()[defaultX][defaultY] = (Pix)spawnClass.newInstance();
+				}
+				else
+				{
+					grid.getGrid()[(int)(Math.random() * grid.getGrid().length)][(int)(Math.random() * 
+						grid.getGrid()[0].length)] = (Pix)spawnClass.newInstance();
+				}
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -122,7 +149,7 @@ public class Spawner
 			numSpawn--;
 			if( numSpawn == 0 )
 			{
-				numSpawn = maxNumSpawn;
+				numSpawn = numSpawnMax;
 				needRespawn = false;
 			}
 		}
