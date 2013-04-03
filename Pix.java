@@ -260,6 +260,81 @@ public class Pix
 
 	}
 
+		/**
+	 * Transitions a Pix from one location to another
+	 * If the Pix is white, the Pix is moved. Otherwise, one Pix interacts with the other
+ 	 * @param ix inital x location
+	 * @param ix inital y location
+	 * @param x ending x location
+	 * @param y ending y location
+	 */
+	public void trans(Pix[][] grid, int ix, int iy, int x, int y)
+	{
+		// Didn't try to move out of bounds
+		if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length))
+		{
+			// If trans location is white, move Pix
+			if (grid[x][y].isWhite())
+			{
+				movePixel(grid, ix, iy, x, y);
+			}
+			else
+			{
+				grid[ix][iy].interact(grid[x][y]);
+			}
+
+
+		}
+	}
+
+	/**
+	 * Loops through all non-white Pix and transitions them in a random direction (N S E W)
+	 */
+	public void update(Pix[][] grid, int i, int j)
+	{
+		int direction = (int)(Math.random() * 4);
+		//System.out.println(direction);
+		switch(direction)
+		{
+			case 0:
+				trans(grid, i,j,i+1,j);
+				break;
+			case 1:
+				trans(grid, i,j,i,j+1);
+				break;
+			case 2:
+				trans(grid, i,j,i-1,j);
+				break;
+			case 3:
+				trans(grid, i,j,i,j-1);
+				break;
+			default:
+				break;
+		}
+	}
+
+	/**
+	 * Moves a Pix
+	 * @param ix inital x location
+	 * @param ix inital y location
+	 * @param x ending x location
+	 * @param y ending y location
+	 */
+	public void movePixel(Pix[][] grid, int ix, int iy, int x, int y)
+	{
+		try 
+		{
+			grid[x][y] = grid[ix][iy].getClass().newInstance();
+			grid[x][y].setPix(grid[ix][iy]);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		//Uncomment to remove spread
+		//grid[ix][iy] = new NonconformingPix(255,255,255);
+	}
+
 	/**
 	 * Returns RGB integer representation of a Pix
 	 * @return integer RGB of Pix
@@ -298,24 +373,11 @@ public class Pix
 		if( o instanceof Pix )
 		{
 			Pix p = (Pix)o;
-			if( Math.abs( red - p.getRed() ) > COMPARE_THRESHOLD )
-			{
-				return false;
-			}
-			if( Math.abs( blue - p.getBlue() ) > COMPARE_THRESHOLD )
-			{
-				return false;
-			}
-			if( Math.abs( green - p.getGreen() ) > COMPARE_THRESHOLD )
-			{
-				return false;
-			}
-			return true;
+			return !( Math.abs( red - p.getRed() ) > COMPARE_THRESHOLD || 
+					  Math.abs( blue - p.getBlue() ) > COMPARE_THRESHOLD ||
+					  Math.abs( green - p.getGreen() ) > COMPARE_THRESHOLD);
 		} 
-		else 
-		{
-			return false;
-		}
+		return false;
 	}
 
 }

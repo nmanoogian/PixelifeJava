@@ -58,7 +58,13 @@ public class Pixelife extends JPanel
 		while(true)
 		{
 			myGrid.update();
-			
+			spawner.update();
+
+			if( spawner.needRespawn() )
+			{
+				spawner.spawn(myGrid);
+			}
+
 			draw();
 
 			try

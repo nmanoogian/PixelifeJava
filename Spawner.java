@@ -8,23 +8,24 @@ public class Spawner
 	private Class<?> spawnClass;
 
 	/**
-	 * Creates a generic spawner that spawns 10 ranom of the given
+	 * Creates a generic spawner that spawns 10 random of the given
 	 */
 	public Spawner()
 	{
 		needRespawn = false;
 		respawnCounter = 0;
-		respawnMax = 0;
+		respawnMax = 100;
 		numSpawn = 10;
 		spawnClass = Pix.class;
 	}
 
+	/**
+	 * Creates a spawner that will spawn the given class 10 times randomly
+	 *
+	 */
 	public Spawner(Class<?> c)
 	{
-		needRespawn = false;
-		respawnCounter = 0;
-		respawnMax = 0;
-		numSpawn = 10;
+		this();
 		this.spawnClass = c;
 	}
 
@@ -46,6 +47,28 @@ public class Spawner
 		{
 			System.out.println("Class not found");
 		}
+	}
 
+	public void update()
+	{
+		if( respawnMax != -1 )
+		{
+			respawnCounter++;
+			if( respawnCounter > respawnMax )
+			{
+				needRespawn = true;
+				respawnCounter = 0;
+			}	
+		}
+	}
+
+	public boolean needRespawn()
+	{
+		if( needRespawn )
+		{
+			needRespawn = false;
+			return true;
+		}
+		return false;
 	}
 }
