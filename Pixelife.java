@@ -30,7 +30,7 @@ public class Pixelife extends JPanel
 		width = w;
 		height = h;
 
-		myGrid = new PixGrid(w, h);
+		myGrid = new PixGrid(w, h, n);
 	}
 
 	public Dimension getPreferredSize()
@@ -97,7 +97,7 @@ public class Pixelife extends JPanel
 
 		JFrame frame = new JFrame("test");
 
-		Pixelife plife = new Pixelife(width, height, 2);
+		Pixelife plife = new Pixelife(width, height, 150);
 
 		frame.add(plife);
 		frame.pack();

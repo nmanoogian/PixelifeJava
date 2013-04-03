@@ -22,8 +22,15 @@ public class PixGrid
 		grid = new Pix[xsize][ysize];
 		generate_blank_world();
 		generate_world(10);
-		generate_world(NonconformingPix.class, 1);
 	}
+
+	public PixGrid(int xsize, int ysize, int n)
+	{
+		grid = new Pix[xsize][ysize];
+		generate_blank_world();
+		generate_world(n);
+	}
+
 	public void generate_blank_world()
 	{
 		for( int i = 0; i < grid.length; i++ )
@@ -44,14 +51,6 @@ public class PixGrid
 		}
 	}
 
-	public void generate_world(Class<?> t, int number)
-	{
-		if( t.isAssignableFrom( Pix.class ) )
-		{
-			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * 
-				grid[0].length)] = new t.newInstance();
-		}
-	}
 
 	public Pix[][] getGrid()
 	{
