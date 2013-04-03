@@ -65,20 +65,6 @@ public class PixGrid
 	}
 
 	/**
-	 * Creates a number of random-location Pix of a certain type
-	 * @param number number of Pix objects to create
-	 */
-	public void generate_world(int number)
-	{
-		for(int i = 0; i < number; i ++)
-		{
-			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * 
-				grid[0].length)] = new PulsePix();
-		}
-
-	}
-
-	/**
 	 * Returns the grid
 	 * @return grid
 	 */

@@ -322,17 +322,11 @@ public class Pix
 	 */
 	public void movePixel(Pix[][] grid, int ix, int iy, int x, int y)
 	{
-		try 
-		{
-			grid[x][y] = grid[ix][iy].getClass().newInstance();
-			grid[x][y].setPix(grid[ix][iy]);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+		//grid[x][y] = grid[ix][iy].getClass().newInstance();
+		Spawner.spawnXY( grid[ix][iy].getClass(), x, y );
+		grid[x][y].setPix(grid[ix][iy]);
 		//Uncomment to remove spread
-		//grid[ix][iy] = new NonconformingPix(255,255,255);
+		//grid[ix][iy] = new Pix(255,255,255);
 	}
 
 	/**

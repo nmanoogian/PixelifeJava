@@ -34,8 +34,8 @@ public class Pixelife extends JPanel
 		height = h;
 
 		myGrid = new PixGrid(w, h, n);
-		spawner = new Spawner(PulsePix.class);
-		spawner.spawn(myGrid);
+		spawner = new Spawner(PulsePix.class, myGrid);
+		spawner.spawn(10);
 	}
 
 	public Dimension getPreferredSize()
@@ -59,11 +59,6 @@ public class Pixelife extends JPanel
 		{
 			myGrid.update();
 			spawner.update();
-
-			if( spawner.needRespawn() )
-			{
-				spawner.spawn(myGrid);
-			}
 
 			draw();
 
