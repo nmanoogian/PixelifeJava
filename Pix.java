@@ -97,10 +97,25 @@ public class Pix
 		return blue;
 	}
 
+	public void setRed(int red)
+	{
+		this.red = red;
+	}
+
+	public void setGreen(int green)
+	{
+		this.green = green;
+	}
+
+	public void setBlue(int blue)
+	{
+		this.blue = blue;
+	}
+
 	/**
 	 * Increases dominant channel
 	 */
-	public void changeWithChannel(int channel)
+	private void changeWithChannel(int channel)
 	{
 		switch (channel)
 		{
@@ -182,7 +197,7 @@ public class Pix
 	 * 0 => Red; 1 => Blue; 2 => Green
 	 * @return integer for channel
 	 */
-	public int getDomChannel()
+	private int getDomChannel()
 	{
 		if (red > green && red > blue)
 		{

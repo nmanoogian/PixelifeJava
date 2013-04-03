@@ -1,7 +1,13 @@
 
 public class NonconformingPix extends Pix
 {
-	public void interact()
+
+	public NonconformingPix()
+	{
+		super(0,0,0);
+	}
+
+	public void interact(Pix p)
 	{
 		
 	}
