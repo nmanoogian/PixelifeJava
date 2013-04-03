@@ -61,14 +61,15 @@ public class Pixelife extends JPanel
 			
 			draw();
 
-			try
-			{
-				Thread.sleep(0);
-			}
-			catch(InterruptedException e)
-			{
-				System.out.println("interrupted");
-			}
+			// Limit framerate
+			// try
+			// {
+			// 	Thread.sleep(0);
+			// }
+			// catch(InterruptedException e)
+			// {
+			// 	System.out.println("interrupted");
+			// }
 			repaint();
 		}
 	}

@@ -72,8 +72,7 @@ public class PixGrid
 	{
 		for(int i = 0; i < number; i ++)
 		{
-			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * 
-				grid[0].length)] = new PulsePix();
+			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * grid[0].length)] = new PulsePix();
 		}
 
 	}
@@ -100,13 +99,14 @@ public class PixGrid
 		// Didn't try to move out of bounds
 		if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length))
 		{
-			// If trans location is white, move Pix
 			if (grid[x][y].isWhite())
 			{
+				// If trans location is white, move Pix
 				movePixel(ix, iy, x, y);
 			}
 			else
 			{
+				// Otherwise interact with given location
 				grid[ix][iy].interact(grid[x][y]);
 			}
 
@@ -126,7 +126,6 @@ public class PixGrid
 				if( !grid[i][j].isWhite() )
 				{
 					int direction = (int)(Math.random() * 4);
-					//System.out.println(direction);
 					switch(direction)
 					{
 						case 0:

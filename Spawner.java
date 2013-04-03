@@ -1,4 +1,9 @@
-
+/**
+ * Spawner Class
+ * Creates new Pix objects of a certain type
+ * @author Nic Manoogian <zimmoz3@verizon.net>
+ * @author Mike Lyons
+ */
 public class Spawner
 {
 	private boolean needRespawn;
@@ -8,7 +13,7 @@ public class Spawner
 	private Class<?> spawnClass;
 
 	/**
-	 * Creates a generic spawner that spawns 10 ranom of the given
+	 * Creates a generic Spawner that spawns 10 random of the given class
 	 */
 	public Spawner()
 	{
@@ -19,6 +24,10 @@ public class Spawner
 		spawnClass = Pix.class;
 	}
 
+	/**
+	 * Creates a Spawner that spawns 10 of a specific class
+	 * @param c Class to spawn (PulsePix.class)
+	 */
 	public Spawner(Class<?> c)
 	{
 		needRespawn = false;
@@ -28,16 +37,21 @@ public class Spawner
 		this.spawnClass = c;
 	}
 
+	/**
+	 * Spawns to a PixGrid
+	 */
 	public void spawn(PixGrid grid)
 	{
 		if(Pix.class.isAssignableFrom(spawnClass))
 		{
 			for(int i = 0; i < numSpawn; i ++)
 			{
-				try {
-					grid.getGrid()[(int)(Math.random() * grid.getGrid().length)][(int)(Math.random() * 
-						grid.getGrid()[0].length)] = (Pix)spawnClass.newInstance();
-				} catch(Exception e) {
+				try
+				{
+					grid.getGrid()[(int)(Math.random() * grid.getGrid().length)][(int)(Math.random() * grid.getGrid()[0].length)] = (Pix)spawnClass.newInstance();
+				}
+				catch(Exception e)
+				{
 					e.printStackTrace();
 				}
 			}
