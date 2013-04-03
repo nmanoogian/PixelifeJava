@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 /**
  * Pixelife class
  * Manages GUI and pixel painting
+ * @author Nic Manoogian <zimmoz3@verizon.net>
+ * @author Mike Lyons
  */
 public class Pixelife extends JPanel
 {
@@ -97,7 +99,7 @@ public class Pixelife extends JPanel
 
 		JFrame frame = new JFrame("test");
 
-		Pixelife plife = new Pixelife(width, height, 150);
+		Pixelife plife = new Pixelife(width, height, 15);
 
 		frame.add(plife);
 		frame.pack();

@@ -6,6 +6,13 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+
+/**
+ * PixGrid Class
+ * Hold Pix objects and handles movement
+ * @author Nic Manoogian <zimmoz3@verizon.net>
+ * @author Mike Lyons
+ */
 public class PixGrid
 {
 	private BufferedImage canvas;
@@ -37,7 +44,7 @@ public class PixGrid
 		{
 			for( int j = 0; j < grid[0].length; j ++ )
 			{
-				grid[i][j] = new Pix(255,255,255);
+				grid[i][j] = new NonconformingPix(255,255,255);
 			}
 		}
 	}
@@ -47,7 +54,7 @@ public class PixGrid
 		for(int i = 0; i < number; i ++)
 		{
 			grid[(int)(Math.random() * grid.length)][(int)(Math.random() * 
-				grid[0].length)] = new Pix();
+				grid[0].length)] = new NonconformingPix();
 		}
 	}
 
@@ -123,7 +130,8 @@ public class PixGrid
 	public void movePixel(int ix, int iy, int x, int y)
 	{
 		grid[x][y].setPix(grid[ix][iy]);
-		//grid[ix][iy] = new Pix();
+		//Uncomment to remove spread
+		//grid[ix][iy] = new NonconformingPix(255,255,255);
 	}
 
 	public String toString()
