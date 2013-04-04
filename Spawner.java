@@ -35,8 +35,8 @@ public class Spawner
 	{
 		needRespawn = false;
 		respawnCounter = 0;
-		respawnMax = 100;
-		numSpawn = 10;
+		respawnMax = 200;
+		numSpawn = 5;
 		numSpawnMax = 10;
 		defaultX = -1;
 		defaultY = -1;
@@ -66,11 +66,11 @@ public class Spawner
 	}
 
 	/**
-	 * Creates a Spawner with a give class, grid and x and y velocities
+	 * Creates a Spawner with a give class, grid and default x and y locations
 	 * @param c Class to spawn
 	 * @param grid PixGrid object
-	 * @param dx x velocity
-	 * @param dy y velocity
+	 * @param dx default x
+	 * @param dy default y
 	 */
 	public Spawner(Class<?> c, PixGrid grid, int dx, int dy)
 	{

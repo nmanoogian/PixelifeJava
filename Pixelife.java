@@ -39,11 +39,11 @@ public class Pixelife extends JPanel
 		// vline_spawner.spawn(5);
 		// Spawner hline_spawner = new Spawner(DirectedPix.class, myGrid, 0, h/2);
 		// hline_spawner.spawn(5);
-		Spawner lines = new Spawner(ScaredPix.class, myGrid);
-		lines.spawn(1);
+		// Spawner lines = new Spawner(ScaredPix.class, myGrid);
+		// lines.spawn(1);
 
-		spawner = new Spawner(NonconformingPix.class, myGrid);
-		spawner.spawn(1);
+		spawner = new Spawner(AgingPix.class, myGrid);
+		spawner.spawn(100);
 	}
 
 	public Dimension getPreferredSize()

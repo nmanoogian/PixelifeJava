@@ -38,7 +38,7 @@ public class NonconformingPix extends Pix
 	 */
 	public void interact(Pix p)
 	{
-		p.changeWithChannel(p.getDomChannel());
+		//p.changeWithChannel(p.getDomChannel());
 	}
 
 
