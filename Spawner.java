@@ -4,6 +4,7 @@
  * 
  * Tries to save framerate by spawning one per frame,
  * 		unless you call spawn(num)
+ * But still pretty much kills the framerate anyhow
  * @author Nic Manoogian <zimmoz3@verizon.net>
  * @author Mike Lyons
  *

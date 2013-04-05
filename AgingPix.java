@@ -14,6 +14,7 @@ public class AgingPix extends Pix
 	{
 		super();
 		dying = false;
+
 	}
 
 	/**

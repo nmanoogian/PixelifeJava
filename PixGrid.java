@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 /**
  * PixGrid Class
- * Hold Pix objects and handles movement
+ * Holds Pix objects and handles movement
  * @author Nic Manoogian <zimmoz3@verizon.net>
  * @author Mike Lyons
  */
