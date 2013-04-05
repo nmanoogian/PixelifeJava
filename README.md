@@ -6,6 +6,8 @@ A Pixel simulator written with Java's Graphics2D libraries
 	<li>Pix objects interact with each other, growing and shrinking in their environment</li>
 </ul>
 
-To observe different Pix objects and their interactions, add a <pre>Spawner</pre> or modify the default in the <pre>Pixelife</pre> class:
-
+To observe different Pix objects and their interactions, add a Spawner or modify the default in the Pixelife class:
 <pre><code>spawner = new Spawner(AgingPix.class, myGrid);</code></pre>
+
+To compile and run:
+<pre><code>javac *.java && java Pixelife</code></pre>
