@@ -7,7 +7,11 @@ A Pixel simulator written with Java's Graphics2D libraries
 </ul>
 
 To observe different Pix objects and their interactions, add a Spawner or modify the default in the Pixelife class:
-<pre><code>spawner = new Spawner(AgingPix.class, myGrid);</code></pre>
+```Java
+spawner = new Spawner(AgingPix.class, myGrid);
+```
 
 To compile and run:
-<pre><code>javac *.java && java Pixelife</code></pre>
+```java
+javac *.java && java Pixelife
+```
