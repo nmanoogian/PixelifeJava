@@ -15,12 +15,11 @@ import javax.swing.JPanel;
  */
 public class Pixelife extends JPanel
 {
-	private BufferedImage canvas;
-	private static PixGrid myGrid;
-	//private Spawner line_spawner;
-	private Spawner spawner;
-	private int width;
-	private int height;
+	private BufferedImage canvas;	//Buffer that is painted to the screen
+	private static PixGrid myGrid;	//Grid containing Pix objects
+	private Spawner spawner;		//Creates Pix objects of a certain type
+	private int width;				//Width of screen
+	private int height;				//Height of screen
 
 	/**
 	 * Constructor with width and height
@@ -40,10 +39,10 @@ public class Pixelife extends JPanel
 		// Spawner hline_spawner = new Spawner(DirectedPix.class, myGrid, 0, h/2);
 		// hline_spawner.spawn(5);
 		// Spawner lines = new Spawner(ScaredPix.class, myGrid);
-		// lines.spawn(1);
+		// lines.spawn(10);
 
 		spawner = new Spawner(AgingPix.class, myGrid);
-		spawner.spawn(100);
+		spawner.spawn(500);
 	}
 
 	public Dimension getPreferredSize()

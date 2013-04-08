@@ -6,6 +6,7 @@
 public class AgingPix extends Pix
 {
 	private boolean dying;
+
 	/**
 	 * Default constructor
 	 * Calls Pix()
@@ -14,7 +15,6 @@ public class AgingPix extends Pix
 	{
 		super();
 		dying = false;
-
 	}
 
 	/**
