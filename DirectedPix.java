@@ -7,7 +7,7 @@
 
 public class DirectedPix extends Pix
 {
-	private static int direction; // (N E S W)
+	private int direction; // (N E S W)
 
 	/**
 	 * Constructs a DirectedPix with a random direction
@@ -15,7 +15,8 @@ public class DirectedPix extends Pix
 	public DirectedPix()
 	{
 		super();
-		direction = 0;
+		// direction = 0;
+		direction = (int)(Math.random()*4);
 	}
 	public DirectedPix(int r, int g, int b, int direction)
 	{
@@ -23,6 +24,10 @@ public class DirectedPix extends Pix
 		this.direction = direction;
 	}
 
+	/**
+	 * Sets the direction integer
+	 * @param dir direction
+	 */
 	public void setDir(int dir)
 	{
 		direction = dir;
@@ -69,6 +74,7 @@ public class DirectedPix extends Pix
 		// Moves it along
 		Spawner.spawnXY( grid[ix][iy].getClass(), x, y ); 
 		grid[x][y].setPix(grid[ix][iy]);
+		((DirectedPix)grid[x][y]).setDir(direction);
 
 		// Duplicates upward and downward
 		//Spawner.spawnXY( grid[ix][iy].getClass(), x, y-1 );

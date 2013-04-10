@@ -68,7 +68,7 @@ public class Pixelife extends JPanel
 		{
 			myGrid.update();
 			//line_spawner.update();
-			//spawner.update();
+			spawner.update();
 
 			draw();
 

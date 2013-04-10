@@ -38,7 +38,7 @@ public class Spawner
 		respawnCounter = 0;
 		respawnMax = 200;
 		numSpawn = 5;
-		numSpawnMax = 10;
+		numSpawnMax = 20;
 		defaultX = -1;
 		defaultY = -1;
 		spawnClass = Pix.class;
