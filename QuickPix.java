@@ -43,7 +43,7 @@ public class QuickPix extends AgingPix
 
 	/**
 	 * Moves the direction given (N S E W)
-	 * Moves to spaces
+	 * Moves a jump with speed growthspeed
 	 * @param grid PixGrid object
 	 * @param dirNum direction to move
 	 * @param i x location of pixel
