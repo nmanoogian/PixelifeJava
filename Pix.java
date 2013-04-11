@@ -121,19 +121,40 @@ public class Pix
 		return blue;
 	}
 
+	/**
+	 * Sets the red channel to value
+	 * @param red int value to set red
+	 */
 	public void setRed(int red)
 	{
-		this.red = red;
+		if (red >= 0 && red <= 255)
+		{
+			this.red = red;
+		}
 	}
 
+	/**
+	 * Sets the green channel to value
+	 * @param green value to set green
+	 */
 	public void setGreen(int green)
 	{
-		this.green = green;
+		if (green >= 0 && green <= 255)
+		{
+			this.green = green;
+		}
 	}
 
+	/**
+	 * Sets the blue channel to value
+	 * @param blue value to set to blue
+	 */
 	public void setBlue(int blue)
 	{
-		this.blue = blue;
+		if (green >= 0 && green <= 255)
+		{
+			this.blue = blue;
+		}
 	}
 
 	/**
