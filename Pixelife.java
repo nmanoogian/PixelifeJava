@@ -54,8 +54,10 @@ public class Pixelife extends JPanel
 		// lines.spawn(10);
 
 		// spawner = new Spawner(DirectedPix.class, myGrid);
-		// spawner.spawn(50);
+		// spawner.spawn(5);
 		spawner = new Spawner(AgingPix.class, myGrid);
+		spawner.spawn(100);
+		spawner = new Spawner(NonconformingPix.class, myGrid);
 		spawner.spawn(100);
 	}
 
@@ -66,7 +68,7 @@ public class Pixelife extends JPanel
 	{
 		return new Dimension(canvas.getWidth(), canvas.getHeight());
 	}
-	
+
 	/**
 	 * Required by 2DGraphics
 	 */
