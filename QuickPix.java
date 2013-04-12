@@ -6,7 +6,11 @@
  */
 public class QuickPix extends AgingPix
 {
+	/*
+	 * Speed of spread
+	 */
 	private int growthspeed;
+
 	/**
 	 * Default constructor
 	 * Calls Pix()

@@ -7,7 +7,10 @@
 
 public class DirectedPix extends Pix
 {
-	private int direction; // (N E S W)
+	/*
+	 * Numerical direction 0,1,2,3
+	 */
+	private int direction;
 
 	/**
 	 * Constructs a DirectedPix with a random direction

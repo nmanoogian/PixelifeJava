@@ -7,11 +7,14 @@ import java.awt.Color;
  */
 public class Pix
 {
-	public static final int COMPARE_THRESHOLD = 50;
+	public static final int COMPARE_THRESHOLD = 0;
 
-	protected int red;		//Red Channel
-	protected int green;	//Green Channel
-	protected int blue;		//Blue Channel
+	/*
+	 * Color channels
+	 */
+	protected int red;
+	protected int green;
+	protected int blue;
 
 	/**
 	 * Constructs a Pix using rgb values

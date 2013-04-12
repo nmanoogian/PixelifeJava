@@ -15,11 +15,23 @@ import javax.swing.JPanel;
  */
 public class Pixelife extends JPanel
 {
-	private BufferedImage canvas;	//Buffer that is painted to the screen
-	private static PixGrid myGrid;	//Grid containing Pix objects
-	private Spawner spawner;		//Creates Pix objects of a certain type
-	private int width;				//Width of screen
-	private int height;				//Height of screen
+	/*
+	 * Buffer that is painted to the screen
+	 */
+	private BufferedImage canvas;
+	/*
+	 * Grid containing Pix objects
+	 */
+	private static PixGrid myGrid;
+	/*
+	 * Creates Pix objects of a certain type
+	 */
+	private Spawner spawner;
+	/*
+	 * Screen dimentions
+	 */
+	private int width;
+	private int height;
 
 	/**
 	 * Constructor with width and height
@@ -43,15 +55,21 @@ public class Pixelife extends JPanel
 
 		// spawner = new Spawner(DirectedPix.class, myGrid);
 		// spawner.spawn(50);
-		spawner = new Spawner(QuickPix.class, myGrid);
-		spawner.spawn(50);
+		spawner = new Spawner(AgingPix.class, myGrid);
+		spawner.spawn(100);
 	}
 
+	/**
+	 * Required by 2DGraphics
+	 */
 	public Dimension getPreferredSize()
 	{
 		return new Dimension(canvas.getWidth(), canvas.getHeight());
 	}
-
+	
+	/**
+	 * Required by 2DGraphics
+	 */
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
@@ -67,8 +85,8 @@ public class Pixelife extends JPanel
 		while(true)
 		{
 			myGrid.update();
-			//line_spawner.update();
-			spawner.update();
+			// line_spawner.update();
+			// spawner.update();
 
 			draw();
 

@@ -5,6 +5,9 @@
  */
 public class AgingPix extends Pix
 {
+	/*
+	 * Whether or not a color is returning to white
+	 */
 	private boolean dying;
 
 	/**
