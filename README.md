@@ -17,7 +17,7 @@ The basic Pix object follows these rules:
 	</ul>
 	<li>If two Pixels have the same highest channel, then they are said to have the same <i>dominant channel</i></li>
 	<li>If two Pixels have the same dominant channel and they interact, both increase that channel by 2 points and both decrease each of the <i>non-dominant</i> channels by 1</li>
-	<li>If two Pixels interact, but do not have the same dominant channel, they both remain unchanged<li>
+	<li>If two Pixels interact, but do not have the same dominant channel, they both remain unchanged</li>
 </ul>
 
 To observe different Pix objects and their interactions, add a Spawner or modify the default in the Pixelife class:
