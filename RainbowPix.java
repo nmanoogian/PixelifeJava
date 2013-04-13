@@ -12,7 +12,7 @@ public class RainbowPix extends NonconformingPix
 	 */
 	public RainbowPix()
 	{
-		super();
+		super(255, 0, 0);
 	}
 
 	/**
@@ -24,7 +24,7 @@ public class RainbowPix extends NonconformingPix
 	 */
 	public RainbowPix(int r, int g, int b)
 	{
-		super(r, g, b);
+		this();
 	}
 
 	/**
@@ -40,26 +40,32 @@ public class RainbowPix extends NonconformingPix
 		int newr = red;
 		int newg = green;
 		int newb = blue;
-		if (newr == 255 && newg < 255)
+		int growth = 3;
+		if (newr == 255 && newg + growth <= 255)
 		{
-			newg++;
+			newg += growth;
 		}
-		else if (newg == 255 && newr > 0)
+		else if (newg == 255 && newr >= growth)
 		{
-			newr--;
+			newr -= growth;
 		}
-		else if (newg == 255 && newr == 0 && newb < 255)
+		else if (newg == 255 && newr == 0 && newb + growth <= 255)
 		{
-			newb++;
+			newb += growth;
 		}
-		else if (newb == 255 && newg > 0)
+		else if (newb == 255 && newg >= growth)
 		{
-			newg--;
+			newg -= growth;
 		}
-		else if (newb == 255 && newr < 255)
+		else if (newb == 255 && newr + growth <= 255)
 		{
-			newr++;
+			newr += growth;
 		}
+		else if (newb >= growth && newr == 255)
+		{
+			newb -= growth;
+		}
+
 		grid[x][y].setPix(newr, newg, newb);
 	}
 }
