@@ -23,6 +23,7 @@ The basic Pix object follows these rules:
 To observe different Pix objects and their interactions, add a Spawner or modify the default in the Pixelife class:
 ```Java
 spawner = new Spawner(AgingPix.class, myGrid);
+spawner.spawn(100);
 ```
 
 To compile and run:
