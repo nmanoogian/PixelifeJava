@@ -21,30 +21,30 @@ public class RejectingPix extends Pix
 	 */
 	public void interact(Pix p)
 	{
-		// Get further to red
+		// Get further from red
 		if (p.getRed() > red && red > 0)
 		{
 			red--;
 		}
-		if (p.getRed() < red && red < 255)
+		else if (p.getRed() < red && red < 255)
 		{
 			red++;
 		}
-		// Get further to green
+		// Get further from green
 		if (p.getGreen() > green && green > 0)
 		{
 			green--;
 		}
-		if (p.getGreen() < green && green < 255)
+		else if (p.getGreen() < green && green < 255)
 		{
 			green++;
 		}
-		// Get further to blue
+		// Get further from blue
 		if (p.getBlue() > blue && blue > 0)
 		{
 			blue--;
 		}
-		if (p.getBlue() < blue && blue < 255)
+		else if (p.getBlue() < blue && blue < 255)
 		{
 			blue++;
 		}
