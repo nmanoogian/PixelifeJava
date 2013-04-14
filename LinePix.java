@@ -30,24 +30,6 @@ public class LinePix extends DirectedPix
 		this.direction = direction;
 	}
 
-	/**
-	 * Sets the direction integer
-	 * @param dir direction
-	 */
-	public void setDir(int dir)
-	{
-		direction = dir;
-	}
-
-	/**
-	 * Updates specific Pix, moving it in it's direction using its location
-	 * @param i x location
-	 * @param j y location
-	 */
-	public void update(int i, int j)
-	{
-		moveDir(Pixelife.getGrid().getGrid(), direction, i, j);
-	}
 
 	/**
 	 * Transitions a Pix from one location to another

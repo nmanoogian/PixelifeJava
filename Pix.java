@@ -262,7 +262,7 @@ public class Pix
 		}
 		else
 		{
-			//ystem.out.println("No dominant channel" + toString());
+			// System.out.println("No dominant channel" + toString());
 			return -1;
 		}
 
