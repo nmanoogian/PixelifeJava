@@ -1,31 +1,32 @@
 /**
- * Class DirectedPix
+ * Class LinePix
  * Pixels that only move in one direction
  * @author Nic Manoogian <zimmoz3@verizon.net>
  * @author Mike Lyons
  */
 
-public class DirectedPix extends NonconformingPix
+public class LinePix extends DirectedPix
 {
 	/*
-	 * Numerical direction 0,1,2,3	
+	 * Prevents line from growing in one frame
 	 */
-	protected int direction;
+	private boolean examined;
 
 	/**
-	 * Constructs a DirectedPix with a random direction
+	 * Constructs a LinePix with a random direction
 	 */
-	public DirectedPix()
+	public LinePix()
 	{	
 		super();
-		direction = 2+((int)(Math.random()*2));
+		direction = ((int)(Math.random()*4));
+		examined = (direction >= 2);
 	}
 	/**
-	 * Constructs a DirectedPix with a specific direction and color
+	 * Constructs a LinePix with a specific direction and color
 	 */
-	public DirectedPix(int r, int g, int b, int direction)
+	public LinePix(int r, int g, int b, int direction)
 	{
-		super(r,g,b);
+		super(r,g,b, direction);
 		this.direction = direction;
 	}
 
@@ -58,16 +59,24 @@ public class DirectedPix extends NonconformingPix
 	 */
 	public void trans(Pix[][] grid, int ix, int iy, int x, int y)
 	{
-		// Didn't try to move out of bounds
-		if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length))
+		// If the Pix has been looked at
+		if (examined)
 		{
-			// If trans location is white, move Pix
-			if (grid[x][y].isWhite())
+			// Didn't try to move out of bounds
+			if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length))
 			{
-				Spawner.spawnXY( grid[ix][iy].getClass(), x, y ); 
-				grid[x][y].setPix(grid[ix][iy]);
-				((DirectedPix)grid[x][y]).setDir(direction);
+				// If trans location is white, move Pix
+				if (grid[x][y].isWhite())
+				{
+					Spawner.spawnXY( grid[ix][iy].getClass(), x, y ); 
+					grid[x][y].setPix(grid[ix][iy]);
+					((DirectedPix)grid[x][y]).setDir(direction);
+				}
 			}
+		}
+		else
+		{
+			examined = true;
 		}
 	}
 }

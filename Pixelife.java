@@ -55,10 +55,10 @@ public class Pixelife extends JPanel
 
 		// spawner = new Spawner(DirectedPix.class, myGrid);
 		// spawner.spawn(400);
-		spawner = new Spawner(Pix.class, myGrid);
-		spawner.spawn(1000);
+		spawner = new Spawner(LinePix.class, myGrid);
+		spawner.spawn(10);
 		// spawner = new Spawner(RainbowPix.class, myGrid);
-		// spawner.spawn(1);
+		// spawner.spawn(2);
 	}
 
 	/**
