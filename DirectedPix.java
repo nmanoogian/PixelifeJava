@@ -17,12 +17,11 @@ public class DirectedPix extends NonconformingPix
 	 */
 	public DirectedPix()
 	{
-		super();
-		direction = (int)(Math.random()*4);
+		this(254,254,254,(int)(Math.random()*2));
 	}
 	public DirectedPix(int r, int g, int b, int direction)
 	{
-		super(r,g,b);
+		super(254,254,254);
 		this.direction = direction;
 	}
 
