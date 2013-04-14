@@ -5,7 +5,7 @@
  * @author Mike Lyons
  */
 
-public class DirectedPix extends Pix
+public class DirectedPix extends NonconformingPix
 {
 	/*
 	 * Numerical direction 0,1,2,3
@@ -43,8 +43,6 @@ public class DirectedPix extends Pix
 	 */
 	public void update(int i, int j)
 	{
-		//int direction = (int)(Math.random() * 4);
-		//System.out.println(direction);
 		moveDir(Pixelife.getGrid().getGrid(), direction, i, j);
 	}
 

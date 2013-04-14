@@ -12,7 +12,25 @@ public class RainbowPix extends NonconformingPix
 	 */
 	public RainbowPix()
 	{
-		super(255, 0, 0);
+		int choosecolor = (int) (Math.random() * 3);
+		switch (choosecolor)
+		{
+			case 0:
+				red = 255;
+				green = 0;
+				blue = 0;
+				break;
+			case 1:
+				red = 0;
+				green = 255;
+				blue = 0;
+				break;
+			case 2:
+				red = 0;
+				green = 0;
+				blue = 255;
+				break;
+		}
 	}
 
 	/**
@@ -40,28 +58,28 @@ public class RainbowPix extends NonconformingPix
 		int newr = red;
 		int newg = green;
 		int newb = blue;
-		int growth = 3;
-		if (newr == 255 && newg + growth <= 255)
+		int growth = 5;
+		if (newr == 255 && newg + growth <= 255 && newb == 0)
 		{
 			newg += growth;
 		}
-		else if (newg == 255 && newr >= growth)
+		else if (newr >= growth && newg == 255 && newb == 0)
 		{
 			newr -= growth;
 		}
-		else if (newg == 255 && newr == 0 && newb + growth <= 255)
+		else if (newr == 0 && newg == 255 && newb + growth <= 255)
 		{
 			newb += growth;
 		}
-		else if (newb == 255 && newg >= growth)
+		else if (newr == 0 && newg >= growth && newb == 255)
 		{
 			newg -= growth;
 		}
-		else if (newb == 255 && newr + growth <= 255)
+		else if (newr + growth <= 255 && newg == 0 && newb == 255)
 		{
 			newr += growth;
 		}
-		else if (newb >= growth && newr == 255)
+		else if (newr == 255 && newg == 0 && newb >= growth)
 		{
 			newb -= growth;
 		}
