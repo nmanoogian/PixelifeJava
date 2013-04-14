@@ -5,8 +5,6 @@
  * @author Mike Lyons
  */
 
-
-
 public class NonconformingPix extends Pix
 {
 	/**
@@ -33,12 +31,11 @@ public class NonconformingPix extends Pix
 	}
 
 	/**
-	 * Changes the Pix interactee with respect to dominant channel
+	 * Ignores interaction request
 	 * @param p Pix interactee
 	 */
 	public void interact(Pix p)
 	{
-		//p.changeWithChannel(p.getDomChannel());
 	}
 
 

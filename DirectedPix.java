@@ -18,7 +18,6 @@ public class DirectedPix extends NonconformingPix
 	public DirectedPix()
 	{
 		super();
-		// direction = 0;
 		direction = (int)(Math.random()*4);
 	}
 	public DirectedPix(int r, int g, int b, int direction)
@@ -59,32 +58,13 @@ public class DirectedPix extends NonconformingPix
 		// Didn't try to move out of bounds
 		if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length))
 		{
-			movePixel(grid, ix, iy, x, y);
+			// If trans location is white, move Pix
+			if (grid[x][y].isWhite())
+			{
+				Spawner.spawnXY( grid[ix][iy].getClass(), x, y ); 
+				grid[x][y].setPix(grid[ix][iy]);
+				((DirectedPix)grid[x][y]).setDir(direction);
+			}
 		}
-	}
-
-	/**
-	 * Moves a Pix
-	 * @param ix inital x location
-	 * @param ix inital y location
-	 * @param x ending x location
-	 * @param y ending y location
-	 */
-	public void movePixel(Pix[][] grid, int ix, int iy, int x, int y)
-	{
-		// Moves it along
-		Spawner.spawnXY( grid[ix][iy].getClass(), x, y ); 
-		grid[x][y].setPix(grid[ix][iy]);
-		((DirectedPix)grid[x][y]).setDir(direction);
-
-		// Duplicates upward and downward
-		//Spawner.spawnXY( grid[ix][iy].getClass(), x, y-1 );
-		//Spawner.spawnXY( grid[ix][iy].getClass(), x, y+1 );
-		//grid[x][y-1].setPix(grid[ix][iy]);
-		//grid[x][y+1].setPix(grid[ix][iy]);
-		//((DirectedPix)grid[x][y-1]).setDir(0);
-		//((DirectedPix)grid[x][y+1]).setDir(2);
-		//Uncomment to remove spread
-		//grid[ix][iy] = new Pix(255,255,255);
 	}
 }
