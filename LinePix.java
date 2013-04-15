@@ -23,17 +23,21 @@ public class LinePix extends DirectedPix
 	}
 	/**
 	 * Constructs a LinePix with a specific direction and color
+	 * @param r red channel
+	 * @param g green channel
+	 * @param b blue channel
 	 */
 	public LinePix(int r, int g, int b, int direction)
 	{
 		super(r,g,b, direction);
 		this.direction = direction;
+		examined = (direction >= 2);
 	}
 
 
 	/**
 	 * Transitions a Pix from one location to another
-	 * If the Pix is white, the Pix is moved. Otherwise, one Pix interacts with the other
+	 * If the Pix is white, the Pix is moved.
  	 * @param ix inital x location
 	 * @param ix inital y location
 	 * @param x ending x location

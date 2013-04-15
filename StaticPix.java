@@ -1,5 +1,6 @@
 /**
  * Class StaticPix
+ * Pixels do not update
  * @author Nic Manoogian <zimmoz3@verizon.net>
  * @author Mike Lyons
  */

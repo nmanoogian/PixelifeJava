@@ -53,20 +53,22 @@ public class SpiralPix extends DirectedPix
 		{
 			length--;
 			// Didn't try to move out of bounds
-			if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length))
+			if (!(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length) && (grid[x][y].isWhite()))
 			{
-				// If trans location is white, move Pix
-				if (grid[x][y].isWhite())
-				{
-					Spawner.spawnXY( grid[ix][iy].getClass(), x, y ); 
-					grid[x][y].setPix(grid[ix][iy]);
-					((SpiralPix)grid[x][y]).setDir(direction);
-					((SpiralPix)grid[x][y]).setLengths(length, startinglength);
-					grid[ix][iy] = new StaticPix(grid[ix][iy].getRed(),grid[ix][iy].getGreen(),grid[ix][iy].getBlue());
-				}
+				Spawner.spawnXY( grid[ix][iy].getClass(), x, y ); 
+				grid[x][y].setPix(grid[ix][iy]);
+				((SpiralPix)grid[x][y]).setDir(direction);
+				((SpiralPix)grid[x][y]).setLengths(length, startinglength);
+				grid[ix][iy] = new StaticPix(grid[ix][iy].getRed(),grid[ix][iy].getGreen(),grid[ix][iy].getBlue());
+			}
+			// Stop circling if you move out of bounds or touch
+			else
+			{
+				startinglength = 0;
+				length = -1;
 			}
 		}
-		else
+		else if (length != -1)
 		{
 			if (direction == 3)
 			{

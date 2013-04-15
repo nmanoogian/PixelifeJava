@@ -1,0 +1,18 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/nicmanoogian/Documents/CS/PixelifeJava"
+		}
+	]
+	,
+	"build_systems":
+    [
+            {
+                    "name": "PixelifeJava",
+                    "cmd": ["javac *.java && java Pixelife"],
+                    "shell":true
+            }
+    ]
+
+}
