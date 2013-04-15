@@ -38,4 +38,6 @@ A few of the more notable classes:
 	<li><i>AgingPix</i> - Pixels "grow old" and become white</li>
 	<li><i>SpiralPix</i> - Forms a spiral pattern</li>
 	<li><i>WallPix</i> - Multiple form a maze pattern which contains Pix growth</li>
+	<li><i>ScaredPix</i> - Recedes away from other Pix</li>
+	<li><i>ConformingPix</i> - Change to the color of the Pix around them (causes blurring)</li>
 </ul>
