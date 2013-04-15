@@ -30,3 +30,12 @@ To compile and run:
 ```java
 javac *.java && java Pixelife
 ```
+
+A few of the more notable classes:
+<ul>
+	<li><i>RainbowPix</i> - Generates a rainbow pattern</li>
+	<li><i>PulsePix</i> - Pulses from the center</li>
+	<li><i>AgingPix</i> - Pixels "grow old" and become white</li>
+	<li><i>SpiralPix</i> - Forms a spiral pattern</li>
+	<li><i>WallPix</i> - Multiple form a maze pattern which contains Pix growth</li>
+</ul>
