@@ -4,7 +4,7 @@
  * @author Nic Manoogian <zimmoz3@verizon.net>
  * @author Mike Lyons
  */
-public class StaticPix extends Pix
+public class StaticPix extends NonconformingPix
 {
 	/**
 	 * Default constructor

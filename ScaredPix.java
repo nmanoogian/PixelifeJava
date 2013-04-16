@@ -33,9 +33,7 @@ public class ScaredPix extends Pix
 	{
 		if (!(p instanceof ScaredPix))
 		{
-			red = 255;
-			green = 255;
-			blue = 255;
+			setPix(255,255,255);
 		}
 	}
 }

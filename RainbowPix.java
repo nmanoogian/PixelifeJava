@@ -83,7 +83,10 @@ public class RainbowPix extends NonconformingPix
 		{
 			newb -= growth;
 		}
-
+		// Possible Inversion
+		// newr = 255-newr;
+		// newg = 255-newg;
+		// newb = 255-newb;
 		grid[x][y].setPix(newr, newg, newb);
 	}
 }
