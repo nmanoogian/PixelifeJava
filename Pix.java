@@ -361,7 +361,7 @@ public class Pix
 		Spawner.spawnXY( grid[ix][iy].getClass(), x, y );
 		grid[x][y].setPix(grid[ix][iy]);
 		//Uncomment to remove spread
-		//grid[ix][iy] = new Pix(255,255,255);
+		// grid[ix][iy] = new Pix(255,255,255);
 	}
 
 	/**

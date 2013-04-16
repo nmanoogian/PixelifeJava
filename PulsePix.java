@@ -55,7 +55,7 @@ public class PulsePix extends Pix
 				}
 				else
 				{
-					red = 100;
+					setPix(100,0,0);
 				}
 
 				break;
@@ -67,9 +67,8 @@ public class PulsePix extends Pix
 				}
 				else
 				{
-					blue = 100;
+					setPix(0,0,100);
 				}
-
 				break;
 			case 2:
 				//Inc dominant
@@ -79,7 +78,7 @@ public class PulsePix extends Pix
 				}
 				else
 				{
-					green = 100;
+ 					setPix(0,100,0);
 				}
 
 				break;
