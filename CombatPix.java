@@ -1,10 +1,19 @@
 /**
  * CombatPix Class
  * The large grouping of Pix overcomes the small
+ * Still working on implementation:
+ *   - How do we count the Pix objects in a cluster?
+ *   - How do we keep the algorithm fast?
+ * @author Nic Manoogian
  */
+// import java.util.ArrayList;
+
 public class CombatPix extends NonconformingPix
 {
+	// Possibly keep track of strength at the edges
 	private int strength;
+	// Possibly keep track of children
+	// private ArrayList<CombatPix> children;
 
 	public CombatPix()
 	{
@@ -30,7 +39,7 @@ public class CombatPix extends NonconformingPix
 	 */
 	public void interact(Pix p)
 	{
-		if (p instanceof CombatPix)
+		if (p instanceof CombatPix && !equal(p))
 		{
 			if (((CombatPix)p).getStrength() > getStrength())
 			{
@@ -39,6 +48,10 @@ public class CombatPix extends NonconformingPix
 			}
 		}
 	}
+	
+	/**
+	 * Copies a Pix to a new location and increases strength
+	 */
 	public void movePixel(Pix[][] grid, int ix, int iy, int x, int y)
 	{
 		Spawner.spawnXY( grid[ix][iy].getClass(), x, y );
