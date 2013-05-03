@@ -30,6 +30,10 @@ To compile and run:
 ```java
 javac *.java && java Pixelife
 ```
+Or simply:
+```
+make life
+```
 
 A few of the more notable classes:
 <ul>
