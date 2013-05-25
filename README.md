@@ -44,4 +44,5 @@ A few of the more notable classes:
 	<li><i>WallPix</i> - Multiple form a maze pattern which contains Pix growth</li>
 	<li><i>ScaredPix</i> - Recedes away from other Pix</li>
 	<li><i>ConformingPix</i> - Change to the color of the Pix around them (causes blurring)</li>
+	<li><i>AvgPix</i> - Change to the color of the average of the current color and the color of the interacting Pix</li>
 </ul>
